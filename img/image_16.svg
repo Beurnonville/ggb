@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="0 0 96.69 180.38">
+  <defs>
+    <path id="a" d="M0 0h388.35v261.92H0Z"/>
+  </defs>
+  <defs>
+    <clipPath id="b" clipPathUnits="userSpaceOnUse">
+      <use xlink:href="#a"/>
+    </clipPath>
+    <clipPath id="c" clipPathUnits="userSpaceOnUse">
+      <use xlink:href="#a"/>
+    </clipPath>
+  </defs>
+  <path fill="#ffb81a" fill-opacity=".4" stroke="#000" stroke-miterlimit="10" stroke-width=".53" d="M.27 179.95V47.4L96.42.43v132.56z"/>
+  <path fill="#d3d3d3" fill-rule="evenodd" d="M15.83 150.33V61.81l65.03-31.76v88.52Zm.46-.97V62.33L80.4 31.02v87.02Z"/>
+  <path fill="#ededed" d="M16.29 77.86V62.33L80.4 31.02v15.53Z"/>
+  <path fill="#fff" d="M16.29 149.36V77.51L80.4 46.19v71.85Z"/>
+  <path fill="#f8f8f8" d="M16.29 77.2v1.32L80.4 47.2v-1.3z"/>
+  <path fill="none" stroke="#dcdcdc" stroke-miterlimit="10" stroke-width=".6" d="M.6 57.9h83.84M.6 57.45h83.84" transform="matrix(.76465 -.3735 0 -1.25275 15.83 150.33)"/>
+  <g clip-path="url(#b)" transform="matrix(.16509 -.08064 0 -.27047 16.29 149.36)">
+    <g fill="none" stroke-miterlimit="10" stroke-width="1.42" clip-path="url(#c)">
+      <path stroke="#c60" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".5" d="M299.55 131.53c0-65.41-53.02-118.44-118.44-118.44-65.4 0-118.43 53.03-118.43 118.44s53.02 118.43 118.43 118.43c65.42 0 118.44-53.02 118.44-118.43z"/>
+      <path stroke="#c90" stroke-dasharray="3.69 2.27" stroke-linejoin="round" stroke-opacity=".7" d="m65.86 104.28 323.05 76.38"/>
+      <path stroke="#069" stroke-linecap="square" d="m293.53 161.62 5.68-5.68m-5.68 0 5.68 5.68"/>
+    </g>
+  </g>
+  <g font-family="Utopia" font-weight="700">
+    <text font-size="10.04" style="-inkscape-font-specification:Utopia-Bold" transform="matrix(.76465 -.3735 0 1.25275 4.99 58.79)"><tspan x="0 6.75 12.2 15.31 21.3 27.61 34.92" y="0">Calquen</tspan></text>
+    <text font-size="6.52" style="-inkscape-font-specification:Utopia-Bold" transform="matrix(.76465 -.3735 0 1.25275 36.59 39.73)"><tspan x="0" y="0">o</tspan></text>
+    <text font-size="10.04" style="-inkscape-font-specification:Utopia-Bold" transform="matrix(.76465 -.3735 0 1.25275 40.97 41.21)"><tspan x="0" y="0">1</tspan></text>
+  </g>
+</svg>

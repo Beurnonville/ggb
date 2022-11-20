@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="14.007297mm"
+   height="14.007297mm"
+   viewBox="0 0 14.007297 14.007297"
+   version="1.1"
+   id="svg4585"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="toucheExe.svg">
+  <defs
+     id="defs4579" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="15.063291"
+     inkscape:cx="37.953962"
+     inkscape:cy="27.985982"
+     inkscape:document-units="mm"
+     inkscape:current-layer="g1738"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata4582">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-81.442785,-122.93088)">
+    <g
+       transform="matrix(0.20010423,0,0,0.20010423,-117.46082,51.893874)"
+       style="stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0"
+       clip-path="url(#clip124)"
+       id="g1738">
+      <g
+         id="g1736"
+         style="fill:#ff9933;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         transform="translate(0.43889065,0.43889065)">
+        <path
+           d="m 994,362 v 55 c 0,3.87 3.13,7 7,7 h 55 c 3.9,0 7,-3.13 7,-7 v -55 c 0,-3.87 -3.1,-7 -7,-7 h -55 c -3.87,0 -7,3.13 -7,7 z"
+           id="path1730"
+           inkscape:connector-curvature="0" />
+        <title
+           id="title1732">Bouton ClavierExe</title>
+        <desc
+           id="desc1734">ClavierExe</desc>
+      </g>
+      <!-- drawing style -->
+    </g>
+    <g
+       transform="matrix(0.20010423,0,0,0.20010423,-117.46082,51.893874)"
+       style="stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0"
+       clip-path="url(#clip125)"
+       id="g1751">
+      <g
+         id="g1749"
+         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1">
+        <path
+           d="m 994.5,362.5 v 55 c 0,3.87 3.13,7 7,7 h 55 c 3.9,0 7,-3.13 7,-7 v -55 c 0,-3.87 -3.1,-7 -7,-7 h -55 c -3.87,0 -7,3.13 -7,7 z"
+           id="path1743"
+           inkscape:connector-curvature="0" />
+        <title
+           id="title1745">Bouton ClavierExe</title>
+        <desc
+           id="desc1747">ClavierExe</desc>
+      </g>
+      <!-- drawing style -->
+    </g>
+    <g
+       style="stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0"
+       transform="matrix(0.05502866,0,0,0.05502866,83.844028,131.75347)"
+       id="g1766">
+      <clipPath
+         id="clip6193446e-c565-4f6a-8e52-fcd2c99e7c36">
+        <path
+           d="M -3658.2,-1451.2 V 741.51 H 3323.6 V -1451.2 Z"
+           id="path1753"
+           inkscape:connector-curvature="0" />
+      </clipPath>
+      <g
+         clip-path="url(#clip126)"
+         id="g1764">
+        <g
+           id="g1762"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none">
+          <path
+             d="M 12.5,0 Q 9.4219,-0.34375 9.0781,-3.4219 V -66.016 Q 9.375,-69.047 12.5,-69.391 h 42.094 q 1.468,0.157 2.367,1.055 0.898,0.898 1.055,2.32 v 4 q -0.344,3.078 -3.422,3.422 l -30.375,-0.297 v 18.063 h 27.297 q 1.422,0.156 2.32,1.055 0.898,0.898 1.055,2.367 v 2.984 Q 54.547,-31.297 51.516,-31 H 24.219 v 20.016 l 31.5,-0.391 q 1.515,0 2.539,0.898 1.023,0.8989 1.258,2.4614 v 4.5937 Q 59.375,-2 58.445,-1.0703 57.516,-0.14062 56.109,0 Z"
+             id="path1756"
+             inkscape:connector-curvature="0" />
+          <title
+             id="title1758">Bouton ClavierExe</title>
+          <desc
+             id="desc1760">ClavierExe</desc>
+        </g>
+        <!-- drawing style -->
+      </g>
+      <!-- clip126 -->
+    </g>
+    <g
+       style="stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0"
+       transform="matrix(0.05502866,0,0,0.05502866,87.385872,131.75347)"
+       id="g1781">
+      <clipPath
+         id="clipd2df2b7f-1fde-482f-92c8-e6dc2333641f">
+        <path
+           d="M -3722.4,-1451.2 V 741.51 H 3259.4 V -1451.2 Z"
+           id="path1768"
+           inkscape:connector-curvature="0" />
+      </clipPath>
+      <g
+         clip-path="url(#clip127)"
+         id="g1779">
+        <g
+           id="g1777"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none">
+          <path
+             d="M 4.5938,0 Q 3.7656,0 3.0781,-0.63281 2.3906,-1.2656 2.3906,-2.2031 q 0,-0.9219 0.4844,-1.4063 L 19,-23.688 3.6094,-42.188 q -0.5313,-0.734 -0.5313,-1.421 0,-0.969 0.6563,-1.579 0.6562,-0.609 1.5937,-0.609 h 7.2659 q 2.297,0 3.625,1.797 l 8.39,10.797 8.11,-10.797 q 1.265,-1.797 3.469,-1.797 h 7.218 q 0.985,0 1.641,0.609 0.656,0.61 0.656,1.579 0,0.781 -0.484,1.421 l -14.891,18.5 16.594,20.0786 q 0.484,0.4844 0.484,1.4063 0,0.9843 -0.656,1.59372 Q 46.094,0 45.219,0 H 37.891 Q 35.688,0 34.422,-1.8125 L 24.609,-16.109 15.188,-1.8125 Q 14.062,0 11.922,0 Z"
+             id="path1771"
+             inkscape:connector-curvature="0" />
+          <title
+             id="title1773">Bouton ClavierExe</title>
+          <desc
+             id="desc1775">ClavierExe</desc>
+        </g>
+        <!-- drawing style -->
+      </g>
+      <!-- clip127 -->
+    </g>
+    <g
+       style="stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0"
+       transform="matrix(0.05502866,0,0,0.05502866,90.1273,131.75347)"
+       id="g1796">
+      <clipPath
+         id="clip12a9e224-a185-4bba-a3fc-2663c4cf9adf">
+        <path
+           d="M -3772.4,-1451.2 V 741.51 H 3209.4 V -1451.2 Z"
+           id="path1783"
+           inkscape:connector-curvature="0" />
+      </clipPath>
+      <g
+         clip-path="url(#clip128)"
+         id="g1794">
+        <g
+           id="g1792"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none">
+          <path
+             d="m 3.0781,-23.188 q 0,-5.765 1.5625,-10.359 1.5625,-4.594 4.586,-7.664 3.0234,-3.07 7.4684,-4.687 4.446,-1.618 10.305,-1.618 20.906,0 20.906,22.313 0,1.515 -0.953,2.57 -0.953,1.055 -2.469,1.242 H 16.312 q 0,6.688 2.93,10.789 2.93,4.102 9.367,4.102 9.235,0 16.063,-6.391 0.5,-0.203 0.844,-0.203 0.437,0 0.804,0.321 0.368,0.32 0.368,0.757 l 0.624,7.0316 q 0,0.875 -0.624,1.1719 -4.11,2.3906 -8.75,3.66406 -4.641,1.27344 -9.329,1.27344 -8,0 -13.765,-2.7109 -5.7659,-2.711 -8.7659,-8.1329 -3,-5.4222 -3,-13.4692 z m 13.3279,-3.906 h 19.969 q 0,-12.797 -9.375,-12.797 -5.125,0 -7.859,3.735 -2.735,3.734 -2.735,9.062 z"
+             id="path1786"
+             inkscape:connector-curvature="0" />
+          <title
+             id="title1788">Bouton ClavierExe</title>
+          <desc
+             id="desc1790">ClavierExe</desc>
+        </g>
+        <!-- drawing style -->
+      </g>
+      <!-- clip128 -->
+    </g>
+  </g>
+</svg>

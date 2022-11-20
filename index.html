@@ -1,0 +1,2128 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Créer un exercice autocorrectif avec GeoGebra</title>
+
+    	<meta name="description" content="GeoGebra - Exercices autocorrectifs">
+    	<meta name="author" content="Régis Deleuze">
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/ggb.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/google-light.css" id="highlight-theme">
+		
+		<script src="js/spotlight.bundle.js"></script>
+		<script src="https://www.geogebra.org/apps/deployggb.js"></script>
+		
+		<script src="https://kit.fontawesome.com/27e336993e.js" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+			
+			
+			   <section class="title" data-menu-title="Titre">
+			   		<img style="position: absolute;left: 0;top: 0; opacity: 0.15;margin:0;border:0;max-width:100%;max-height:100%;background: none;box-shadow: none;z-index: -1;" src="img/bgtitre.png">
+					 
+					<div class="boxtitle">						
+							Créer<br>
+							un exercice autocorrectif<br>
+							avec <span style="font-size:1.7em;line-height: 0.95em;">Ge<img src="img/GeogebraLogo_strong.svg" class="animate__rotate-center slower" style="margin:0;background:none;box-shadow: none;border:0;width: 0.68em;">Gebra</span>
+					</div>					
+
+					<div class="auteurs">
+						<div class="auteur animate__lightSpeedInLeft slow">							
+								Régis Deleuze
+						</div>
+						<div class="institution animate__fadeInDown slow">
+								Collège Beurnonville, Troyes
+						</div>
+					</div>
+
+				</section>	
+
+				<section class="impact" data-menu-title="À propos" data-transition="zoom-in zoom-out">					
+					<div class="apropos">
+						<div style="display:flex;gap:1em;">
+							<div>
+								<p>
+								Ce diaporama vient en complément du <span class="docfile"><a href="https://bit.ly/ggbdocexerciseur" target="_blank">document d'accompagnement</a></span> consacré à la réalisation d'exercices autocorrectifs à l'aide du logiciel <span class="ggbname">GeoGebra</span>.
+								</p>
+								<p>Il tente d'en reprendre les points essentiels tout en laissant de côté les aspects les plus techniques.
+								</p>
+							</div>
+							<img src="img/image_33.png" class="fonctionnalite animate__fadeIn" style="width:220px;">
+						</div>	
+						
+						<div style="display:flex;font-size: 75%;justify-content: flex-end;">
+							<div>Liens utiles :</div>
+							<div>
+								<ul class="fa-ul">
+									<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>le générateur d'exercices : <a href="https://ggbm.at/nhdxcysw" target="_blank" class="lienapropos">https://ggbm.at/nhdxcysw</a>
+									</li>	
+									<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>des exemples de réalisations : <a href="https://ggbm.at/gs7krfrf" target="_blank" class="lienapropos">https://ggbm.at/gs7krfrf</a>
+									</li>
+									<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>le document d'accompagnement : <a href="https://bit.ly/ggbdocexerciseur" target="_blank" class="lienapropos">https://bit.ly/ggbdocexerciseur</a>
+									</li>
+								</ul>
+							</div>	
+						</div>
+
+						<div style="display:flex;gap:1em;align-items: center;">
+							<div>
+								<a href="https://creativecommons.org/licenses/by/4.0/deed.fr" target="_blank"><img src="img/ccby.svg" style="width:200px;"></a>
+							</div>
+							<div style="color:black;text-align:center;font-size:0.5em;font-weight: 400;">Ce document est placé sous licence<br>Creative Commons Attribution 4.0 International<br>(CC BY 4.0)
+							</div>							
+						</div>
+					</div>
+				</section>	
+
+				<section class="impact sommaire" data-menu-title="Sommaire" data-transition="concave-in zoom-out">
+					<img src="img/GeogebraLogo.svg"  style="position: absolute;left: 0;top: 0; opacity: 0.85;margin:0;border:0;max-width:100%;max-height:100%;background:none;box-shadow: none;z-index: -1;width: 100%;opacity: 0.4;filter: blur(8px);-webkit-filter: blur(8px);">		
+					<div class="sommaire_titre">Sommaire</div>	
+					<div class="lien_sommaire animate__fadeInDownBig" style="margin-bottom:0.75em;"><a href="#/avant-propos">Avant-propos</a></div>					
+					<div class="lienrapide">		
+						<a class="animate__fadeInLeftBig faster" href="#/principales_fonctionnalites">Principales fonctionnalités de l'outil</a>
+						<a class="animate__fadeInLeftBig faster" href="#/principes_generaux">Principes généraux de fonctionnement</a>
+						<a class="animate__fadeInLeftBig faster" href="#/fonctions_modifiables">Les fonctions modifiables de la zone JavaScript global</a>
+						<a class="animate__fadeInLeftBig faster" href="#/objets_predefinis">Quelques objets prédéfinis à connaître</a>
+						<a class="animate__fadeInLeftBig faster" href="#/etapes_exercice">Les différentes étapes pour créer un exercice</a>
+						<a class="animate__fadeInLeftBig faster" href="#/Moodle">Intégration dans Moodle</a>						
+						<a class="animate__fadeInLeftBig faster" href="#/Moodle">Le clavier virtuel</a>
+					</div>					
+					<div class="lien_sommaire animate__fadeInUpBig" data-delay="0" style="margin-top:0.75em;"><a href="#/liens_supplementaires">Liens complémentaires</a></div>
+				</section>
+			
+				<section id="avant-propos">
+					<h2>Avant-propos</h2>
+					<div style="flex-grow: 1;display: flex;flex-direction: column;justify-content: center;">
+					<p>Le <span class="ggbfile"><a href="https://ggbm.at/nhdxcysw" target="_blank">générateur d'exercices</a></span>, qui fait l'objet du présent diaporama, s'apparente à un outil destiné à faciliter la
+						conception d'exercices autocorrectifs à l'aide du logiciel <span class="ggbname">GeoGebra</span>.						
+					</p>
+					<p>Si des connaissances en JavaScript ne sont pas requises pour manipuler l'outil<sup>*</sup>, une maîtrise
+					minimale de <span class="ggbname">GeoGebra</span> s'avère, en revanche, indispensable pour parvenir à créer un exercice fonctionnel.
+					</p>
+					<div class="notionsaconnaitre fragment fade-up">
+						<p>Quelques notions à connaître, en particulier, avant de se lancer :					
+							<ul class="fa-ul">
+								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>les calques : <a href="https://bit.ly/ggb_calques" target="_blank">https://bit.ly/ggb_calques</a>
+								</li>
+								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>listes et matrices : <a href="https://bit.ly/ggb_listes" target="_blank">https://bit.ly/ggb_listes</a>
+								</li>
+								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>les valeurs booléennes : <a href="https://bit.ly/ggb_booleens" target="_blank">https://bit.ly/ggb_booleens</a>
+								</li>
+								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>écrire en $\LaTeX$ : <a href="https://bit.ly/ggb_latex" target="_blank">https://bit.ly/ggb_latex</a>
+								</li>
+							</ul>
+						</p>
+					</div>
+					</div>
+					<div class="myfooter">
+						<hr style="width: 75%;margin: 0;border:0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
+						<sup>*</sup> Cependant, le recours à JavaScript peut se révéler nécessaire lorsqu'il s'agit de concevoir un exercice
+							relativement complexe.
+					</div>
+				</section>
+				
+				<section class="impact" data-menu-title="§ Principales fonctionnalités" id="principales_fonctionnalites">
+					<img style="position: absolute;left: 0;top: 0; opacity: 0.85;margin:0;border:0;max-width:100%;max-height:100%;background: 		none;box-shadow: none;z-index: -1;" src="img/stitre1.png">
+					<div class="boxsubtitle" id="stitre1">						
+							Principales<br>fonctionnalités<br>de l'outil						
+					</div>
+				</section>
+				
+				
+				<section>
+				
+					<section>
+						<h2>Vérification de version</h2>
+						<img src="img/image_00.png" class="fonctionnalite animate__fadeIn" style="width:75%;">
+						<p>Si la version de <span class="ggbname">GeoGebra</span> employée n'est pas suffisamment récente, un message d'avertissement peut être affiché à l'ouverture du fichier (il reste cependant possible d'outrepasser cet avertissement).
+						</p>
+					</section>
+					
+					<section>
+						<h2>Écran d'accueil</h2>
+						<img src="img/image_01.svg" class="fonctionnalite animate__fadeIn">
+						<p>Un écran d'accueil (optionnel) permet de présenter l'objectif de l'activité et/ou de préciser la consigne.</p>
+						<p>Un message automatique décrivant la façon dont est calculé le score dans l'exercice peut être affiché ou
+							non.
+						</p>
+					</section>
+					
+					<section>
+						<h2>Score et nombre de questions</h2>
+						<img src="img/image_02.svg" class="fonctionnalite animate__fadeIn">
+						<p>Le nombre de questions, l'affichage du score, la façon dont celui-ci est calculé ainsi que le nombre d'essais disponibles sont paramétrables.
+						</p>
+					</section>
+					
+					<section>
+						<h2>Bouton Aide</h2>
+						<img src="img/image_03.svg" class="fonctionnalite animate__fadeIn">
+						<p>Lors d'un travail en salle informatique, un bouton (optionnel) permet à l'élève d'alerter l'enseignant pour qu'il lui
+						vienne en aide.
+						</p>
+						<p>Ce bouton d'appel à l'aide peut revêtir la forme d'une image <img src="img/img_help.svg" style="width:2.5em;margin-bottom: -0.5em;"> ou d'un bouton <img src="img/btn_aide.svg" style="width:6em;margin-bottom: -0.3em;">.
+						</p>
+					</section>	
+
+					<section>
+						<h2>Existence d'une réponse</h2>
+						<img src="img/image_04.svg" class="fonctionnalite animate__fadeIn">
+						<p>Avant d'effectuer la vérification de la figure suite à l'appui sur le bouton
+							<img src="img/btn_verif.svg" style="width:4.5em;margin-bottom: -0.3em;">, le logiciel peut s'assurer
+						que l'élève a construit au moins un objet du type (non nécessairement géométrique) attendu.
+						</p>
+					</section>	
+
+					<section>
+						<h2>Affichage de la réponse attendue</h2>
+						<img src="img/image_05.svg" class="fonctionnalite animate__fadeIn">
+						<p>En cas d'erreur, la réponse attendue est affichée et certains objets prédéfinis peuvent être rendus automatiquement 		visibles. De surcroît, les objets construits par l'élève sont rendus moins opaques.
+						</p>
+					</section>	
+
+					<section>
+						<h2>Incrémentation du score</h2>
+						<img src="img/image_06.svg" class="fonctionnalite animate__fadeIn">
+						<p>En cas de réponse correcte, le score est incrémenté selon les paramètres définis par le concepteur de
+							l'exercice.
+						</p>
+						<p>Si le nombre maximal de questions n'est pas atteint, l'appui sur le bouton <img src="img/btn_nq.svg" style="width:7em;margin-bottom: -0.4em;"> permet
+							de passer à la question suivante.
+						</p>
+					</section>	
+
+					<section>
+						<h2>Message de fin d'exercice</h2>
+						<img src="img/image_07.svg" class="fonctionnalite animate__fadeIn">
+						<p>L'exercice s'arrête lorsque le nombre maximal de questions est atteint.</p>
+						<p>Il est, bien évidemment, possible de paramétrer le message s'affichant en fin d'exercice.
+						</p>
+					</section>	
+
+					<section>
+						<h2>Questions chronométrées</h2>
+						<img src="img/image_08.svg" class="fonctionnalite animate__fadeIn">
+						<p>La modification de la valeur d'un seul paramètre permet de limiter le temps imparti
+							pour répondre aux questions.</p>
+						<p>Un chronomètre devient visible et la réponse apparaît si l'élève n'a pas répondu durant la durée accordée.
+						</p>
+					</section>	
+
+					<section>
+						<h2>Vérification à la volée</h2>
+						<img src="img/image_09.svg" class="fonctionnalite animate__fadeIn">
+						<p>La construction peut être validée « à la volée » par le logiciel
+							sans que l'élève n'ait à cliquer sur un bouton.
+						</p>
+						<p>Le bouton <img src="img/btn_verif.svg" style="width:4.5em;margin-bottom: -0.3em;"> devient
+						alors <img src="img/btn_voirrep.svg" style="width:4.5em;margin-bottom: -0.3em;"> et le nombre de
+						tentatives autorisées n'est plus pris en compte.
+						</p>
+					</section>	
+
+					<section>
+						<h2>Clavier virtuel</h2>
+						<div style="display:flex">
+							<img src="img/image_10.svg" class="fonctionnalite animate__fadeIn">
+							<img src="img/image_57.svg" style="width:30%;" class="animate__fadeIn">
+						</div>
+						<p>Un clavier, paramétrable, est intégrable directement à l'intérieur de la figure. L'intégration ainsi que le paramétrage du clavier ont été rendus aussi automatiques que possible.
+						</p>
+						<p>Le clavier virtuel peut aussi prendre l'apparence d'une mini-calculatrice.
+					</section>						
+				</section>
+				
+				<section class="impact" data-menu-title="§ Principes généraux de fonctionnement" id="principes_generaux">
+					<img style="position: absolute;left: 0;top: 0; opacity: 0.85;margin:0;border:0;max-width:100%;max-height:100%;background: 		none;box-shadow: none;z-index: -1;" src="img/stitre2.png">
+					<div class="boxsubtitle" id="stitre2">						
+							Principes<br>généraux de fonctionnement						
+					</div>
+				</section>				
+				
+				<section>
+				
+					<section data-auto-animate>
+						<h2>L'onglet JavaScript global</h2>
+						<p>Pour accéder à l'onglet <span class="ggbmenu">JavaScript global</span>, il suffit d'ouvrir le panneau
+							des propriétés de n'importe quel objet de la figure puis de sélectionner
+							l'onglet <span class="ggbmenu">Script</span> et enfin l'onglet <span class="ggbmenu">JavaScript global</span>.
+						</p>
+						<img src="img/image_11.png" class="fonctionnalite" style="margin-top:0.5em; margin-bottom:0em;">
+					</section>
+					
+					<section data-auto-animate data-menu-title="L'onglet JavaScript global (II)">
+						<h2>L'onglet JavaScript global</h2>
+						<div style="display:flex;">						
+							<p style="flex:1;">Pour accéder à l'onglet <span class="ggbmenu">JavaScript global</span>, il suffit d'ouvrir le panneau
+								des propriétés de n'importe quel objet de la figure puis de sélectionner
+								l'onglet <span class="ggbmenu">Script</span> et enfin l'onglet <span class="ggbmenu">JavaScript global</span>.
+							</p>	
+							<img src="img/image_11.png" class="fonctionnalite" style="width:15%;">							
+						</div>
+						<p>C'est dans cette zone que se situe le « moteur » de l'exerciceur constitué d'un ensemble de fonctions, écrites en JavaScript,
+						permettant  d'automatiser un grand nombre de tâches :
+							<ul class="fa-ul">
+								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>gestion du score et du nombre de tentatives ;</li>
+								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>passage d'une question à une autre ;</li>
+								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>affichage d'éléments différents en fonction de la progression dans l'exercice ;</li>
+								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>vérification de la réponse fournie par l'élève ;</li>
+								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>...</li>
+							</ul>
+						</p>
+					</section>	
+
+					<section data-menu-title="L'onglet JavaScript global (III)">
+						<h2>L'onglet JavaScript global</h2>	
+						<p>Les différentes fonctions de la zone <span class="ggbmenu">JavaScript global</span> sont séparées en deux catégories distinctes :
+							<ul class="fa-ul">
+								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>la première partie du script
+									regroupe les six fonctions modifiables par le concepteur d'exercices (il s'agit essentiellement
+									de fonctions de réglages qui servent à paramétrer finement le fonctionnement général de
+									l'exerciseur) ;</li>
+							</ul>
+							<div style="display:flex;align-items:center;">	
+								<ul class="fa-ul" style="flex:1;">
+									<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>toutes les autres fonctions permettent à
+									l'exerciseur d'effectuer les tâches pour lesquelles il est conçu : ces fonctions ne doivent donc
+									surtout pas être modifiées !</li>								
+								</ul>	
+								<img src="img/image_12.png" class="fonctionnalite animate__fadeIn" style="width:35%;">	
+							</div>	
+						</p>
+					</section>
+					
+					<section>
+						<h2>Les objets de la figure</h2>	
+						<p>Initialement, le <span class="ggbfile"><a href="https://ggbm.at/nhdxcysw" target="_blank">générateur d'exercices</a></span>
+						contient déjà de très nombreux objets.
+						</p>
+						<p>Pour les rendre visibles dans la vue <span class="ggbmenu">Algèbre</span>, il suffit de cliquer sur le
+								bouton <img src="img/btn_objaux.svg" style="width:1em;margin-bottom: -0.1em;">.
+						</p>
+						<div style="display:flex;align-items:center;gap:0.5em;">
+							<div>										
+								<p>À quelques exceptions près, tous ces objets sont nommés sous la forme :
+									<pre><code class="language-plaintext" data-trim data-noescape>priv_{nom de l'objet}</code></pre>
+								</p>
+								<div class="notionsaconnaitre fragment fade-up">
+									<p>Parmi les objets prédéfinis de la figure, certains peuvent être modifiés partiellement (forme et/ou contenu) mais les autres objets ne doivent pas être altérés par l'utilisateur (se référer au
+									<span class="docfile"><a href="https://bit.ly/ggbdocexerciseur" target="_blank">document d'accompagnement</a></span>
+									pour la liste des objets modifiables ou non).
+									</p>
+								</div>
+							</div>
+							<div class="spotlight-group">
+							<a class="spotlight"  href="img/ggbaux_hd.gif">
+								<img src="img/ggbaux.gif" class="fonctionnalite animate__fadeIn" style="width:352px">
+							</a>
+							</div>
+						</div>
+					</section>
+					
+					<section>
+						<h2>Les calques</h2>
+						<div style="flex-grow: 1;display: flex;flex-direction: column;justify-content: center;">
+							<p>L'exerciseur utilise de façon intensive les calques<sup>*</sup> de <span class="ggbname">GeoGebra</span> afin d'afficher ou de masquer certains
+								éléments de la figure en fonction du contexte.
+							</p>
+							<img src="img/image_13.svg" class="animate__fadeIn" style="width:30%;margin:0.5em auto;">
+							<div class="attention" style="display:flex;align-items:center;">
+								<p><i class="fa-solid fa-triangle-exclamation attentionsign"></i>L'exerciseur ne peut gérer de façon 
+									automatique la répartition des objets sur les différents calques que 
+									pour ceux dont la condition d'affichage est vide.
+								</p>
+								<img src="img/image_14.png" class="fonctionnalite animate__fadeIn" style="width:400px;margin:0.5em auto;">
+							</div>
+						</div>
+						<div class="myfooter">
+							<hr style="width: 75%;margin: 0;border:0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
+							<sup>*</sup> On rappelle que calque n°0 est celui qui est situé sous tous les autres tandis que le calque n°9 est celui qui vient se superposer au-dessus de tous les autres calques.
+						</div>
+					</section>
+					
+					<section>
+						<h2>Le calque n°0</h2>	
+						<p>Le calque n°0 contient tous les objets affichés sur l'écran d'accueil.</p>
+						<img src="img/image_15.svg" class="animate__fadeIn" style="width:25%;margin: 1em auto;">
+					</section>
+					
+					<section>
+						<h2>Le calque n°1</h2>	
+						<p>Les objets du calque n°1 ne sont jamais rendus visibles.</p>
+						<div style="display:flex;align-items:center;gap:1em;">
+							<div>
+								<img src="img/image_16.svg" class="animate__fadeIn" style="width:300px;">
+							</div>
+							<div>								
+								<p>Toutes les variables numériques ainsi que tous les objets du type angle ou du type booléen sont
+									automatiquement envoyés sur le calque n°1.</p>
+								<div class="notionsaconnaitre">
+									<p>Si un objet de ce type a besoin d'être visible dans la figure de l'élève, il convient de l'affecter
+									au calque n°3.</p>
+									<div class="spotlight-group" style="text-align:center;">
+										<a class="spotlight"  href="img/ggbcalque_hd.gif">
+										<img src="img/ggbcalque.gif" class="fonctionnalite animate__fadeIn" style="width:60%;">
+										</a>
+									</div>
+								</div>
+							</div>							
+						</div>
+					</section>	
+
+					<section>
+						<h2>Le calque n°2</h2>							
+							
+						<div style="display:flex;align-items:center;margin-top:1em;gap:1em;">
+							<div>
+								<img src="img/image_17.svg" class="animate__fadeIn" style="width:300px;">
+							</div>
+							<div>
+								<p>Le calque n°2 contient uniquement le quadrilatère <span class="objetggb">priv_{voile}</span>, qui recouvre toute la 	zone de travail, rendu visible lorsque la fin d'une question est atteinte.</p>
+								<div class="notionsaconnaitre">
+									<p>Lorsque la fin d'une question est atteinte, tous les objets construit par 
+									les élèves sont envoyés sur le calque n°1.</p>
+									<p>De cette manière, le quadrilatère <span class="objetggb">priv_{voile}</span>, qui est semi-transparent, vient recouvrir les objets des élèves, les rendant ainsi moins opaques.
+									</p>
+								</div>
+							</div>
+						</div>		
+						
+					</section>	
+
+					<section>
+						<h2>Le calque n°3</h2>	
+						<p>Le calque n°3 contient tous les objets construits par l'enseignant ou par l'élève (à l'exception, comme il a déjà
+							été vu, des objets du type variable numérique, booléen et angle).</p>
+							
+						<div style="display:flex;align-items:center;margin-top:1em;gap:1em;">
+							<div>
+								<img src="img/image_18.svg" class="animate__fadeIn" style="width:300px;">
+							</div>
+							<div class="notionsaconnaitre" style="margin:0px;">
+								<p>Tous les objets appartenant à ce calque sont rendus visibles lorsque la première question est affichée.</p>
+								<p>Ainsi, pour qu'un objet du calque n°3 reste caché, il est nécessaire d'affecter la condition <span class="varggb">false</span> au champ <span class="ggbmenu">Condition pour afficher l'objet</span> de cet objet.</p>
+								<div class="spotlight-group" style="text-align:center;margin-top:1em;">
+									<a class="spotlight"  href="img/ggbcondaff_hd.gif">
+										<img src="img/ggbcondaff.gif" class="fonctionnalite animate__fadeIn" style="width:45%;">
+									</a>
+								</div>
+							</div>
+						</div>
+					</section>					
+					
+					<section>
+						<h2>Le calque n°9</h2>	
+						<p>Les objets du calque n°9 sont rendus visibles uniquement lorsque la fin d'une question est atteinte (que la réponse soit correcte ou non).</p>
+						<p>Par défaut, ce calque contient les objets ciblés (ceux de la liste <span class="objetggb">priv_{objetscibles}</span>),
+							les différents messages en cas de bonne ou de mauvaise réponse ainsi que le quadrilatère <span class="objetggb">priv_{zonetravail}</span> (affiché seulement quand l'élève requiert une assistance en cliquant sur le bouton dédié).
+						</p>
+						
+						<div style="display:flex;align-items:center;margin-top:-0.5em;gap:1em;">
+							<div>
+								<img src="img/image_19.svg" class="animate__fadeIn" style="width:160px;">
+							</div>
+							<div class="notionsaconnaitre" style="margin:0px;">
+								<p>En affectant des objets sur le calque n°9, le concepteur d'un exercice s'assure que ceux-ci seront rendus
+								visibles lorsque la fin d'une question est atteinte.</p>
+								<p>En revanche, pour afficher un objet en fin de question, uniquement lorsqu'une mauvaise réponse a été fournie,
+									il convient d'attribuer une condition d'affichage à l'objet concerné en se servant des booléens <span class="objetggb">priv_{finquestion}</span> et <span class="objetggb">priv_{mauvaiserep}</span>. 
+								</p>
+								<div style="text-align:center;margin-top:1em;">
+									<img src="img/image_20.png" class="fonctionnalite animate__fadeIn">
+								</div>
+							</div>
+						</div>
+					</section>	
+
+					<section>
+						<h2>La liste <span class="objetggb" style="color:white;">priv_{liste}</span></h2>
+						<p>L'objet, de type liste, <span class="objetggb">priv_{liste}</span> est essentiel au fonctionnement de l'exerciseur.</p>
+						<p>Initialement vide, cette liste est automatiquement complétée par <span class="ggbname">GeoGebra</span> avec le nom de chacun des nouveaux objets construits.</p>	
+						<div style="margin:0.5em auto 0em;">
+							<img src="img/image_21.png">
+						</div>
+						<p>Tenir à jour cette liste permet de supprimer les objets créés par l'élève entre chaque question.
+						</p>
+						<p>En revanche, en mode conception d'exercice, la suppression automatique des objets de la liste <span class="objetggb">priv_{Liste}</span> peut s'avérer désastreuse puisque les objets créés par l'enseignant seraient supprimés au passage à une nouvelle question !
+						</p>						
+					</section>
+
+
+					<section data-menu-title="La liste priv_{liste} (II)">
+						<h2>La liste <span class="objetggb" style="color:white;">priv_{liste}</span></h2>
+							<p>Ainsi, afin de tester un exercice non finalisé, le concepteur doit impérativement penser à vider la liste <span class="objetggb">priv_{liste}</span> avant de cliquer sur le bouton <img src="img/btn_verif.svg" style="width:4.5em;margin-bottom: -0.3em;">.
+							</p>
+							<p>
+							Pour cela, trois possibilités :
+							<ul class="fa-ul">
+								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>vider la liste manuellement depuis la vue <span class="ggbmenu">Algèbre</span> ;</li>
+								<div class="spotlight-group" style="text-align:center; margin:0.5em 0;">	
+									<a class="spotlight"  href="img/ggbprivliste_hd.gif">
+										<img src="img/ggbprivliste.gif" class="fonctionnalite animate__fadeIn" style="width: initial;">
+									</a>
+								</div>								
+								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>se servir du bouton <img src="img/btn_aeff.svg" style="width:6em;margin-bottom: -0.4em;">  (valable une seule fois) ;</li>
+								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>enregistrer l'exercice puis rouvrir aussitôt l'exercice.</li>
+							</ul>
+						</p>						
+					</section>
+					
+					<section>
+						<h2>La redéfinition des objets</h2>
+						
+						<div class="avertissement">
+						  <div class="av_tl"><i class="fa-solid fa-triangle-exclamation av_sign"></i> Avertissement</div>
+						  <div></div>
+						  <div class="av_content">
+						  	<p>Redéfinir un objet en cours de conception d'exercice peut entraîner des conséquences fâcheuses.</p>
+							<p>En effet, dans certains cas (en particulier lorsque l'on modifie le type d'un objet), <span class="ggbname">GeoGebra</span> peut être amené à reconstruire entièrement la figure.</p>
+							<p>Pour des raisons techniques, une telle reconstruction, lorsqu'elle a lieu, empêche l'exerciceur de fonctionner
+								comme attendu (et il s'avère très compliqué de revenir en arrière !).</p>
+							<p style="font-weight:normal;">Ainsi, si un objet doit être redéfini, il est vivement conseillé de commencer par le supprimer avant de créer
+								un nouvel objet portant le même nom.</p>
+						  </div>
+						  <div class="av_bl"></div>
+						  <div></div>
+						</div>
+						
+					</section>
+				</section>
+
+				<section class="impact" data-menu-title="§ Les fonctions modifiables de la zone JavaScript global" id="fonctions_modifiables">
+					<img style="position: absolute;left: 0;top: 0; opacity: 0.85;margin:0;border:0;max-width:100%;max-height:100%;background: 		none;box-shadow: none;z-index: -1;" src="img/stitre3.png">
+					<div class="boxsubtitle" id="stitre3">						
+							Les fonctions modifiables de<br>la zone<br>JavaScript global						
+					</div>
+				</section>
+				
+				<section>
+				
+					<section>
+						<h2>Présentation</h2>
+						<p>Le script, présent dans la zone <span class="ggbmenu">JavaScript global</span>, propose, dans sa première partie,
+							six fonctions que le concepteur d'exercices peut être amené à modifier.
+							<ul class="fa-ul">
+								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>la fonction <span class="jfxggb">Initialisation</span> ;
+								</li>
+								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>la fonction <span class="jfxggb">GgbInitialisation</span> ;
+								</li>
+								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>la fonction <span class="jfxggb">Aleatoire</span> ;
+								</li>
+								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>la fonction <span class="jfxggb">VerifierFigure</span> ;
+								</li>
+								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>la fonction <span class="jfxggb">VerifierObjetsConstruits</span> ;
+								</li>
+								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>la fonction <span class="jfxggb">EcouteursObjectUpdateListener</span>.
+								</li>
+							</ul>							
+						</p>
+						<p>En règle générale, les modifications qui doivent intervenir au sein de ces fonctions sont effectuées une fois
+							la figure entièrement construite.
+						</p>
+					</section>
+					
+					<section>
+						<h2>La fonction <span class="jfxggb" style="color:white;">Initialisation</span></h2>
+						
+						<div style="flex-grow: 1;display: flex;flex-direction: column;justify-content: center;">
+							<p>Cette fonction présente la structure suivante :</p>
+								<pre><code data-trim data-noescape>
+								function Initialisation() {
+									var parametres = {
+										'parametre1': valeur1,
+										'parametre2': valeur2,
+											...
+									};
+									return parametres;
+								}
+								</code></pre>
+								<!-- ATTENTION : Toujours coller les balises <pre> et <code> !! -->
+							<p>Le concepteur d'exercices ne doit modifier que la valeur des différents paramètres<sup>*</sup> en prenant garde à leur domaine de définition.
+							</p>
+							<p>Attention à l'utilisation des guillemets !</p>
+							<div class="notionsaconnaitre">Les changements effectués dans cette fonction ne deviennent opérants qu'après enregistrement, fermeture et enfin réouverture du fichier.
+							</div>
+						</div>
+						
+						<div class="myfooter">
+							<hr style="width: 75%;margin: 0;margin-bottom:0.2em;border:0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
+							<sup>*</sup> Voir le <span class="docfile"><a href="https://bit.ly/ggbdocexerciseur" target="_blank">document d'accompagnement</a></span> pour un descriptif complet de tous les paramètres disponibles.
+						</div>
+						
+					</section>
+					
+					<section>
+						<h2>La fonction <span class="jfxggb" style="color:white;">GgbInitialisation</span></h2>
+						<p>Le code, inscrit dans cette fonction, est lu et exécuté uniquement à l'ouverture du fichier.
+						</p>
+						<p>On peut donc y placer du code servant, par exemple, à initialiser la valeur de certains objets au début de l'exercice.
+						</p>
+						<div class="exemple animate__fadeIn">
+							<span class="exemple_title">Exemple</span>
+							<p>À l'ouverture du fichier, pour affecter les coordonnées (3 ; −4) au point A et la valeur 6 à
+								la variable numérique <span class="ggbcode">mavariable</span>, on écrira :
+							</p>
+							<pre><code class="language-javascript" data-trim data-noescape>
+								function GgbInitialisation() {
+								    ggbApplet.evalCommand('SetValue[A,(3,-4)]');
+								    ggbApplet.setValue('mavariable',6);
+								}
+							</code></pre>
+						</div>						
+						<p>La plupart du temps cette fonction restera vide.
+						</p>						
+					</section>
+					
+					<section>
+						<h2>La fonction <span class="jfxggb" style="color:white;">Aleatoire</span></h2>
+						<p>Cette fonction, systématiquement appelée lorsqu'une nouvelle question débute, sert principalement à attribuer des
+							valeurs aléatoires à certains objets de la figure. Mais elle peut également être utilisée pour réinitialiser la valeur ou la mise en forme des objets ou encore pour déclencher un événement particulier (recentrage de la vue, remise à zéro du zoom, etc.).
+						</p>
+						<p>Dans les cas où le concepteur de l'exercice a défini ses objets aléatoires à l'aide de commandes <span class="ggbname">GeoGebra</span> telles que <span class="cmdggb">AléaEntreBornes</span>, <span class="cmdggb">PointAuHasardDans</span>, <span class="cmdggb">ElémentAuHasard</span>, ... , la fonction <span class="jfxggb">Aleatoire</span> pourra se limiter à sa plus simple expression.
+						</p>
+						
+						<div class="exemple animate__fadeIn">
+							<span class="exemple_title">Exemple</span>
+							<p>Pour demander le recalcul des valeurs aléatoires :
+							</p>
+							<pre><code class="language-javascript" data-trim data-noescape>
+								function Aleatoire() {
+								    ggbApplet.evalCommand('UpdateConstruction()');
+								}
+							</code></pre>
+						</div>							
+					</section>
+					
+					<section>
+						<h2>La fonction <span class="jfxggb" style="color:white;">VerifierFigure</span></h2>
+						<p>Lorsque l'exerciseur a besoin de vérifier la réponse d'un élève, c'est la fonction <span class="jfxggb">VerifierFigure</span>
+							qui est appelée et qui est chargée de renvoyer un booléen (<span class="varggb">true</span> ou <span class="varggb">false</span>) selon la nature de la réponse fournie.
+						</p>
+						<p>Le code de cette fonction devra être adapté au cas par cas.
+						</p>
+						<div class="exemple animate__fadeIn">
+							<span class="exemple_title">Exemples</span>
+							<p>Pour vérifier que la construction contient les objets attendus (définis par le paramètre <span class="objetggb">priv_{objetscibles}</span>) :
+							</p>
+							<pre><code class="language-javascript" data-trim data-noescape>
+								function VerifierFigure() {
+								    return ComparerCibles();
+								}
+							</code></pre>
+							<p>Pour vérifier que la variable booléenne <span class="ggbcode">bonnerep</span> (définie par le concepteur de l'exercice) est bien égale à <span class="varggb">true</span> :</p>
+							<pre><code class="language-javascript" data-trim data-noescape>
+								function VerifierFigure() {
+								    return ggbApplet.getValue('bonnerep') > 0 ;
+								}
+							</code></pre>							
+						</div>							
+					</section>
+					
+					<section>
+						<h2>La fonction <span class="jfxggb" style="color:white;">VerifierObjetsConstruits</span></h2>
+						<p>Cette fonction est appelée au moment où l'élève appuie sur le bouton <img src="img/btn_verif.svg" style="width:4.5em;margin-bottom: -0.3em;"> et permet de vérifier qu'au moins un objet du type attendu a été construit.
+						</p>
+						<pre><code class="language-javascript" data-trim data-noescape>								
+								function VerifierObjetsConstruits() {
+								    return ggbApplet.getValue('priv_{constructionrequise}')>0 ||
+								    	ggbApplet.getValue('priv_{verifierexistencetypeobjet}')==0 ;
+								}
+						</code></pre>
+						<p>Lorsque l'élève est amené à construire un objet géométrique ou lorsque la concepteur de l'exercice ne souhaite
+							pas effectuer de vérification préalable quant à l'existence d'un objet du type attendu, ce code peut rester
+							inchangé.
+						</p>
+						<div class="notionsaconnaitre animate__fadeIn">
+							Dans les autres cas, il conviendra d'adapter le code de cette fonction à la nature de la réponse attendue : le
+							<span class="docfile"><a href="https://bit.ly/ggbdocexerciseur" target="_blank">document d'accompagnement</a></span>
+							contient de nombreux exemples en fonction des situations (listes déroulantes, cases à cocher, champs de type texte, etc.).
+						</div>
+					</section>
+
+					<section>
+						<h2>La fonction <span class="jfxggb" style="color:white;">EcouteursObjectUpdateListener</span></h2>
+						<p>Il peut être parfois utile de déclencher un script à chaque fois que la valeur d'un objet
+							est actualisée. En général, on utilise, pour ce faire, un script affecté à l'onglet <span class="ggbmenu">Par Actualisation</span> de l'objet concerné.
+						</p>
+						<p>Néanmoins, dans de rares cas, il est nécessaire de recourir à un «&#8239;écouteur&#8239;» pour intercepter le changement de valeur d'un objet.
+						</p>
+						<p>La fonction <span class="jfxggb">EcouteursObjectUpdateListener</span> permet d'enregistrer, au démarrage de l'exercice,
+							ses propres fonctions d'écoutes relatives à l'actualisation des objets.
+						</p>						
+						<pre><code class="language-javascript" data-trim data-noescape>								
+							function EcouteursObjectUpdateListener() {
+							    var ecouteursObjUp = {
+							        'objet1': 'fonction1',
+							        'objet2': 'fonction2',
+							        	...
+							    };
+							    return ecouteursObjUp;
+							}
+						</code></pre>	
+						<div class="notionsaconnaitre animate__fadeIn" style="position: absolute;right: 0;width: 50%;bottom: 125px;border-top-right-radius: 0px;border-bottom-right-radius: 0px;">						
+							Bien évidemment, il revient au concepteur de l'exercice d'écrire le code des fonctions <span class="jfxggb">fonction1</span>, <span class="jfxggb">fonction2</span>, ...
+						</div>
+					</section>
+					
+				</section>	
+				
+				
+				<section class="impact" data-menu-title="§ Quelques objets prédéfinis à connaître" id="objets_predefinis">
+					<img style="position: absolute;left: 0;top: 0; opacity: 0.85;margin:0;border:0;max-width:100%;max-height:100%;background: 		none;box-shadow: none;z-index: -1;" src="img/stitre4.png">
+					<div class="boxsubtitle" id="stitre4">						
+							Quelques<br>objets prédéfinis<br>à connaître						
+					</div>
+				</section>
+				
+				<section>
+				
+					<section>
+						<h2>Les points <span class="ggbcode">Coin1</span>, <span class="ggbcode">Coin2</span>, <span class="ggbcode">Coin3</span> et <span class="ggbcode">Coin4</span></h2>
+						
+						<div style="display:flex;">
+							<div class="lesobjets">
+								<div><span class="objetggb">Coin1</span>, <span class="objetggb">Coin2</span>,
+									<span class="objetggb">Coin3</span>, <span class="objetggb">Coin4</span> =<span class="typeobj">points</span>
+								</div>								
+								<div>
+									La zone de travail de la vue <span class="ggbmenu">Graphique</span> s'apparente à un rectangle dont le
+									sommet inférieur gauche est le point <span class="objetggb">Coin1</span> et le sommet supérieur droit est
+									le point <span class="objetggb">Coin3</span>.
+								</div>
+							</div>
+							<img src="img/image_22.svg">
+						</div>
+						
+						<div class="notionsaconnaitre animate__fadeIn">
+							<p>Ces points peuvent s'avérer utiles pour positionner précisément certains objets relativement à la vue <span class="ggbmenu">Graphique</span>.</p>
+							<p>Pour cela, on pourra, par exemple, se servir de l'onglet <span class="ggbmenu">Position</span> du panneau des propriétés des objets.
+							</p>
+							<img src="img/image_23.png" class="fonctionnalite" style="display: block;margin-left: auto;margin-top: 0.5em;margin-bottom: 0.5em;margin-right: 1em;width: auto;">
+							<p>On pourra également utiliser la commande <span class="cmdggb">Texte</span> sous la forme :</p>
+							<pre><code class="language-javascript" data-trim data-noescape>								
+								montexte=Texte("\dfrac{a}{b}", Coin4, false, true, 1,-1)
+							</code></pre>								
+						</div>
+					</section>
+					
+					<section>
+						<h2>Les variables <span class="ggbcode">priv_{xfactor}</span> et <span class="ggbcode">priv_{yfactor}</span></h2>
+						
+							<div class="lesobjets">
+								<div><span class="objetggb">priv_{xfactor}</span>, <span class="objetggb">priv_{yfactor}</span> =<span class="typeobj">nombres</span>
+								</div>								
+								<div>
+									<p>Ces deux variables numériques sont définies de la façon suivante&#8239;:</p>
+										<pre><code class="language-javascript" data-trim data-noescape>								
+											priv_{xfactor}=(x(Coin2) - x(Coin1)) / x(Coin5)
+											priv_{yfactor}=(y(Coin3) - y(Coin2)) / y(Coin5)
+										</code></pre>
+									<p><span class="objetggb">Coin5</span> est un point dont l'abscisse et l'ordonnée donnent respectivement la largeur et la hauteur de la vue <span class="ggbmenu">Graphique</span>, exprimées en pixels.</p>
+									<p>Ainsi, <span class="objetggb">priv_{xfactor}</span> et <span class="objetggb">priv_{yfactor}</span>
+									 permettent d'exprimer des coordonnées en pixels, indépendamment de l'échelle choisie pour les axes.
+									</p>
+								</div>
+							</div>
+							
+							<div class="notionsaconnaitre animate__fadeIn">								
+								<p>Par exemple, le point A défini par :
+										<pre><code class="language-javascript" data-trim data-noescape>								
+											A = (50priv_{xfactor}, 100priv_{yfactor})
+										</code></pre>	
+								<p>est toujours situé 50 pixels à droite de l'origine du repère et 100 pixels au-dessus de celle-ci.</p>		
+							</div>
+							
+					</section>
+					
+					<section>
+						<h2>Les messages pour les consignes</h2>
+						
+							<div style="display:flex;align-items: center;">
+								<div class="lesobjets">
+									<div><span class="objetggb">priv_{txtconsigne}</span> =<span class="typeobj">Texte LaTeX&thinsp;</span>
+									</div>								
+									<div>
+										<p>Cet objet de type texte permet de définir le message s'affichant sur l'écran d'accueil.
+										</p>
+									</div>
+								</div>	
+								<img src="img/image_24.svg" style="width:300px;">
+							</div>		
+
+							<div class="notionsaconnaitre animate__fadeIn" style="margin-bottom:1em;">
+								On peut modifier les coordonnées (exprimées en pixels) des objets <span class="objetggb">priv_{OffsetBtnCommencer}</span>, <span class="objetggb">priv_{OffsetConsigne}</span> et <span class="objetggb">priv_{OffsetMsgScore}</span>
+								pour décaler les différents éléments de l'écran d'accueil.
+							</div>
+							
+							<div class="lesobjets">
+								<div><span class="objetggb">priv_{question}</span> =<span class="typeobj">Texte LaTeX&thinsp;</span>
+								</div>								
+								<div>
+									<p>Cet objet de type texte permet de définir le texte de la question. Son contenu peut être rendu dynamique.
+									</p>
+								</div>
+							</div>
+
+							<div class="notionsaconnaitre animate__fadeIn">
+								Avant de finaliser l'exercice, il est recommandé de rendre cet objet non sélectionnable.
+							</div>							
+					</section>
+					
+					<section>
+						<h2>Le curseur <span class="ggbcode">priv_{anim}</span></h2>
+						
+							<div class="lesobjets">
+								<div><span class="objetggb">priv_{anim}</span> =<span class="typeobj">nombre entier</span>
+								</div>								
+								<div>
+									<p>Le variable numérique <span class="objetggb">priv_{anim}</span> est définie comme un curseur à valeurs entières comprises en 0 et 10 et devient animée lorsqu'un message temporaire doit être affiché à l'écran.
+									</p>
+								</div>
+							</div>	
+
+							<div class="notionsaconnaitre animate__fadeIn">
+								<p>Le moyen le plus simple pour placer précisément les objets affichés de manière temporaire (<span class="objetggb">priv_{msg}</span> et <span class="objetggb">priv_{MsgEssayeEncore}</span>) consiste à affecter une valeur
+								comprise entre 1 et 9 à <span class="objetggb">priv_{anim}</span>.</p>
+								<div class="spotlight-group" style="margin-top:0.5em;text-align:center;">
+									<a class="spotlight"  href="img/ggbanim_hd.gif">
+										<img src="img/ggbanim.gif" class="fonctionnalite animate__fadeIn" style="width: auto;">
+									</a>	
+								</div>
+							</div>
+					</section>
+					
+					<section>
+						<h2>Le booléen <span class="ggbcode">priv_{finquestion}</span></h2>
+						
+							<div class="lesobjets">
+								<div><span class="objetggb">priv_{finquestion}</span> =<span class="typeobj">booléen</span>
+								</div>								
+								<div>
+									<p>Cette variable booléenne vaut <span class="varggb">true</span> uniquement lorsque l'élève a atteint la fin d'une question et <span class="varggb">false</span> sinon.
+									</p>
+								</div>
+							</div>	
+
+							<div class="notionsaconnaitre animate__fadeIn">
+								<p>En fin de question, on peut se servir de ce booléen et des booléens <span class="objetggb">priv_{bonnerep}</span> ou <span class="objetggb">priv_{mauvaiserep}</span> pour afficher des objets en fonction de la réponse de l'élève.</p>
+								<div style="margin-top:0.5em;text-align:right;">
+								<img src="img/image_20.png" class="fonctionnalite animate__fadeIn" style="width: auto;">								
+								</div>	
+								<div style="display:flex;align-items: center;">
+									<p>Il se révèle également souvent pratique d'attacher un script <span class="ggbmenu">Par Actualisation</span> à 
+										cet objet afin, par exemple, de colorer des champs texte ou encore de bloquer des éléments de formulaire.
+									</p>
+									<div style="margin-top:0.5em;margin-left:0.5em;">
+										<img src="img/image_25.png" class="fonctionnalite animate__fadeIn" style="width: auto;">
+									</div>	
+								</div>	
+							</div>
+					</section>
+					
+				</section>
+					
+				<section class="impact" data-menu-title="§ Les différentes étapes pour construire un exercice" id="etapes_exercice">					
+					<img style="position: absolute;left: 0;top: 0; opacity: 0.85;margin:0;border:0;max-width:100%;max-height:100%;background: 		none;box-shadow: none;z-index: -1;" src="img/stitre5.png">
+					<div class="boxsubtitle" id="stitre5">
+						<div class="subtitle">
+							Les différentes<br>étapes pour<br>créer un exercice
+						</div>
+					</div>												
+				</section>
+				
+				
+				<section>
+				
+					<section>
+						<h2>Aperçu</h2>
+						
+						<p>Dix étapes pour parvenir à créer un exercice :
+						</p>
+
+						<div class="apercu">
+							<div style="width: 42%;">
+								<p><span class="circlednum">1</span> <a href="#/etape_1">Phase de réflexion/préparation</a>
+								</p>
+								<p><span class="circlednum">2</span> <a href="#/etape_2">Ouverture du fichier</a>
+								</p>	
+								<p><span class="circlednum">3</span> <a href="#/etape_3">Création de la figure</a>
+								</p>
+								<p><span class="circlednum">4</span> <a href="#/etape_4">Mise en forme</a>
+								</p>
+								<p><span class="circlednum">5</span> <a href="#/etape_5">L'onglet JavaScript global</a>
+								</p>								
+							</div>
+							<div>
+								<p><span class="circlednum">6</span> <a href="#/etape_6">Les consignes</a>
+								</p>
+								<p><span class="circlednum">7</span> <a href="#/etape_7">Redimensionnement de la fenêtre de travail</a>
+								</p>	
+								<p><span class="circlednum">8</span> <a href="#/etape_8">Aspect de la fenêtre de travail</a>
+								</p>
+								<p><span class="circlednum">9</span> <a href="#/etape_9">Positionnement des objets texte prédéfinis</a>
+								</p>
+								<p><span class="circlednum">10</span> <a href="#/etape_10">Finalisation</a>
+								</p>
+							</div>							
+						</div>		
+
+						<div class="notionsaconnaitre animate__fadeIn">
+							<p>Avant de se lancer dans la création d'un exercice et dans le but de mieux appréhender le mode de
+								fonctionnement du générateur d'exercices et de commencer à se familiariser avec les objets à manipuler, 
+								le lecteur est fortement incité à réaliser par lui-même quelques uns des exemples de réalisations proposé dans
+								le paragraphe §2 du <span class="docfile"><a href="https://bit.ly/ggbdocexerciseur" target="_blank">document d'accompagnement</a></span>.
+							</p>
+						</div>
+					</section>
+				
+					<section id="etape_1">
+						<h2>Phase de réflexion</h2>
+						
+						<div class="titrephase">
+							<span class="circlednum">1</span> Phase de réflexion/préparation
+						</div>
+						<div style="flex-grow: 1;">		
+							Quelques points à prendre en compte (liste non exhaustive) :
+							<ul class="fa-ul" style="margin-top: 0.25em;">
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>Quels sont les intentions, les objectifs, les compétences visés ?
+								</li>
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>Quels sont les prérequis indispensables ?
+								</li>
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>Quelles sont les modalités d'intégration, au sein des apprentissages, du ou des exercices prévus ?
+								</li>								
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>Quelles sont les variables didactiques (en particulier, quels éléments de la figure se verront affecter des valeurs aléatoires et pour quels domaines de définition) ? 
+								</li>
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>Quelles rétroactions mettre en place ?
+								</li>
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>Quelles sont les contraintes techniques et en quoi peuvent-elles modifier les réponses aux points précédents ?
+								</li>
+							</ul>
+							
+							<div class="notionsaconnaitre_large animate__fadeIn" style="font-size: 50%;">								
+										<p>De manière générale, un exerciseur doit répondre aux contraintes suivantes :
+										<ul class="fa-ul" style="margin-top:0.5em;">
+											<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>la tâche assignée doit être énoncée de manière facilement compréhensible ;
+											</li>
+											<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>la forme de la réponse attendue doit être clairement identifiée par les élèves ;
+											</li>
+											<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>un processus de validation, de correction ou d'évaluation doit être proposé ;
+											</li>	
+											<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>toute réponse juste doit être a acceptée qu'elle qu'en soit la forme ;
+											</li>
+											<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>une démarche automatique et répétée indéfiniment ne peut permettre de répondre à coup sûr.
+											</li>
+										</ul>
+										</p>									
+										<!--<p>De surcroît, il convient d'exclure les exercices qui refusent des réponses justes mais dont la
+											forme diffère de la réponse attendue.
+											il faut également éviter de soumettre aux élèves des exercices qui peuvent induire une stratégie aléatoire de
+											réponse ou pour lesquels une démarche automatique et répétée indéfiniment permet de répondre à coup sûr. 
+										</p>-->									
+							</div>
+						</div>
+					</section>	
+					
+					<section id="etape_2">
+						<h2>Ouverture du fichier</h2>
+						
+						<div class="titrephase">
+							<span class="circlednum">2</span> Ouverture du fichier
+						</div>
+						<div style="flex-grow: 1;">	
+							<ul class="fa-ul">
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>Ouvrir le fichier
+									<span class="ggbfile"><a href="https://ggbm.at/nhdxcysw" target="_blank">générateur d'exercices</a></span>.
+								</li>
+							</ul>
+								
+								<div class="notionsaconnaitre animate__fadeIn">
+									<ul class="fa-ul">
+										<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>
+											Si une copie physique du fichier <span class="ggbcode">generateur_exercice.ggb</span> est présente dans le disque dur de l'ordinateur, un double clic sur son nom suffit pour l'ouvrir avec <span class="ggbname">GeoGebra</span> (on peut aussi se servir du menu <span class="ggbmenu">Fichier <i class="fa-solid fa-angle-right"></i> Ouvrir...</span> du logiciel). 
+										</li>
+										<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>
+											Si l'ordinateur est connecté à Internet, il est aussi possible d'actionner le menu 
+											<span class="ggbmenu">Fichier <i class="fa-solid fa-angle-right"></i> Ouvrir à partir d'une page Web...</span> en saisissant l'adresse : <a href="https://ggbm.at/nhdxcysw" target="_blank">https://ggbm.at/nhdxcysw</a>.
+										</li>										
+									</ul>
+									<div style="display:flex;align-items: center;">
+											<div style="padding: 0.5em 1em 0em;">
+												<img src="img/image_26.png" class="imgshadow" style="width:100%;">
+											</div>
+											<div style="padding: 0.5em 1em 0em;">
+												<img src="img/image_27.png" class="imgshadow" style="width:100%;">
+											</div>
+									</div>
+								</div>
+								
+							<ul class="fa-ul">
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>L'enregistrer immédiatement sous un nouveau nom.
+								</li>								
+							</ul>
+						</div>
+						<div class="attention animate__heartBeat slower" data-delay="3000" style="position: absolute;width: 12em;text-align: center;right: 1em;top: 2em;">
+								<p><i class="fa-solid fa-triangle-exclamation attentionsign"></i>Utiliser une version 5 récente de <span class="ggbname">GeoGebra</span> !
+								</p>								
+						</div>
+					</section>
+					
+					<section>
+						<h2>Avant de poursuivre...</h2>
+						
+						<div class="avertissement">
+						  <div class="av_tl"><i class="fa-solid fa-triangle-exclamation av_sign"></i> Avertissement</div>
+						  <div></div>
+						  <div class="av_content">
+						  	<p>À ce stade, il est très vivement recommandé d'enregistrer son fichier de travail le plus régulièrement possible !</p>
+							<p style="text-align:center"><img src="img/image_29.png" class="fonctionnalite animate__fadeIn" style="width:auto;"></p>
+							<p>Il est également fortement conseillé d'enregistrer les étapes consécutives sont des noms différents (en incrémentant un compteur, par exemple)</p>
+						  </div>
+						  <div class="av_bl"></div>
+						  <div></div>
+						</div>
+						
+					</section>					
+					
+					<section id="etape_3">
+						<h2>Création de la figure</h2>
+						
+						<div class="titrephase">
+							<span class="circlednum">3</span> Création de la figure
+						</div>
+						<div style="flex-grow: 1;">	
+							<ul class="fa-ul">
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>Cliquer sur le bouton <img src="img/btn_commencer.svg" style="width:6em;margin-bottom: -0.3em;">.
+								</li>	
+							</ul>
+							
+								<div class="notionsaconnaitre animate__fadeIn">
+									<p>Avant de cliquer sur le bouton <img src="img/btn_commencer.svg" style="width:6em;margin-bottom: -0.3em;">, il est aussi possible de saisir la consigne devant s'afficher sur l'écran d'accueil en modifiant l'objet <span class="objetggb">priv_{txtconsigne}</span> (mais cela peut également être reporté à plus tard).</p>
+									<!--<p>Mais cela peut également être reporté à plus tard.</p>-->
+								</div>
+							
+							
+							<ul class="fa-ul">	
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>Ouvrir, si nécessaire, la vue <span class="ggbmenu">Algèbre</span>.
+								</li>								
+							</ul>
+							
+								<div class="notionsaconnaitre animate__fadeIn">
+									<div style="display:flex;align-items: center;">
+										<p>Pour travailler avec davantage de confort, il est conseillé de détacher la vue <span class="ggbmenu">Algèbre</span> de la fenêtre principale à l'aide du bouton <img src="img/btn_detachalg.svg" style="width:1em;margin-bottom: -0.1em;">.</p>
+										<div style="margin-top:0.5em;margin-left:0.75em;">
+											<img src="img/image_28.png" class="fonctionnalite animate__fadeIn" style="width: auto;">
+										</div>	
+									</div>																		
+								</div>							
+							
+							<ul class="fa-ul">	
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>Créer tous les objets de la figure, y compris ceux que l'élève doit construire sans nécessairement s'occuper de la mise en forme.
+								</li>								
+							</ul>
+							
+								<div class="notionsaconnaitre animate__fadeIn">
+									<p>Souvent, la partie la plus délicate consistera à définir les objets aléatoires.</p>
+									<!--<p>Mais cela peut également être reporté à plus tard.</p>-->
+								</div>							
+						</div>						
+					</section>					
+					
+					
+					<section id="etape_4">
+						<h2>Mise en forme</h2>
+						
+						<div class="titrephase">
+							<span class="circlednum">4</span> Mise en forme
+						</div>
+						<div style="flex-grow: 1;">	
+							<ul class="fa-ul">
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>
+									Appliquer la mise en forme désirée (couleur, épaisseur, taille, ...) aux différents éléments de la figure.
+								</li>	
+
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>
+									Modifier, éventuellement, la légende des objets en utilisant $\LaTeX$.
+								</li>
+							</ul>
+							
+							<p style="text-align:right;">
+								<img src="img/image_31.png" class="fonctionnalite animate__fadeIn" style="width: auto;">
+							</p>							
+							
+							<ul class="fa-ul">
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>
+									Affecter la condition d'affichage <span class="varggb">false</span> à tous les objets qui n'ont pas vocation a être visibles par les élèves.
+								</li>								
+							</ul>
+							<p style="text-align:right;">
+								<img src="img/image_30.png" class="fonctionnalite animate__fadeIn" style="width: auto;">
+							</p>
+						</div>						
+					</section>			
+
+					<section id="etape_5">
+						<h2>L'onglet JavaScript global</h2>
+						
+						<div class="titrephase">
+							<span class="circlednum">5</span> L'onglet JavaScript global
+						</div>
+						<div style="flex-grow: 1;">	
+							<ul class="fa-ul">
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>
+									Dans la fonction <span class="jfxggb">Initialisation</span>,  modifier les différents paramètres en fonction des besoins et en complétant, si nécessaire, la liste <span class="objetggb">priv_{objetscibles}</span> des objets à construire par l'élève.
+								</li>
+							</ul>
+
+								<div class="notionsaconnaitre animate__fadeIn">
+									<p>Si la valeur par défaut du paramètre <span class="objetggb">autoriserDéplacementVue</span> doit être modifiée (initialement <span class="varggb">true</span>), il est préférable d'attendre le dernier moment (la finalisation de l'exercice) pour en changer la valeur.										
+									</p>									
+								</div>								
+
+							<ul class="fa-ul">
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>
+									Compléter le code de la fonction <span class="jfxggb">Aleatoire</span>.
+								</li>								
+
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>
+									Modifier les fonctions <span class="jfxggb">VerifierFigure</span> et <span class="jfxggb">VerifierObjetsConstruits</span>.
+								</li>		
+
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>
+									Dans les cas les plus complexes, il sera peut-être nécessaire de coder les fonctions <span class="jfxggb">GgbInitialisation</span> et <span class="jfxggb">EcouteursObjectUpdateListener</span>.
+								</li>								
+							</ul>		
+
+							<div class="attention animate__fadeIn slower">
+								<p><i class="fa-solid fa-triangle-exclamation attentionsign"></i>Pour que les modification effectuées dans cette zone soient prises en compte, à ce stade, il vaut mieux enregistrer le fichier, le fermer puis l'ouvrir à nouveau.
+								</p>								
+							</div>								
+						</div>						
+					</section>								
+					
+					<section id="etape_6">
+						<h2>Les consignes</h2>
+						
+						<div class="titrephase">
+							<span class="circlednum">6</span> Les consignes
+						</div>
+						<div style="flex-grow: 1;">	
+							<ul class="fa-ul">
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>
+									Modifier l'objet <span class="objetggb">priv_{question}</span> qui contient le texte de chaque question.
+								</li>
+							</ul>
+
+								<div class="notionsaconnaitre animate__fadeIn" style="display:flex;align-items: center;padding-bottom: 1em;">			
+									<p>On utilisera avec profit le menu <span class="ggbmenu">Objets</span> pour rendre dynamique le texte de la question.										
+									</p>
+									<div class="spotlight-group">
+										<a class="spotlight"  href="img/ggbquestion_hd.gif">
+											<img src="img/ggbquestion.gif" class="fonctionnalite animate__fadeIn" style="width: auto;margin: 0em 1em;">
+										</a>
+									</div>
+								</div>								
+
+							<ul class="fa-ul">
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>
+									Si l'exercice est prévu pour afficher un écran d'accueil, modifier l'objet <span class="objetggb">priv_{txtconsigne}</span> qui contient le texte d'accueil.
+								</li>																			
+							</ul>							
+						</div>						
+					</section>	
+
+					<section id="etape_7">
+						<h2>Redimensionnement de la fenêtre</h2>
+						
+						<div class="titrephase">
+							<span class="circlednum">7</span> Redimensionnement de la fenêtre de travail
+						</div>
+						<div style="flex-grow: 1;">	
+							<ul class="fa-ul">
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>
+									Redimensionner la fenêtre de travail aux dimensions souhaitées.
+								</li>
+							</ul>
+
+								<div class="notionsaconnaitre animate__fadeIn" style="display:flex;align-items: center;padding-bottom: 1em;">			
+									<p>Lorsque l'on modifie la taille de la fênêtre, ses dimensions (en pixels) s'affichent temporairement dans le coin supérieur gauche.										
+									</p>
+									<div class="spotlight-group">
+										<a class="spotlight"  href="img/ggbdimensions_hd.gif">
+											<img src="img/ggbdimensions.gif" class="fonctionnalite animate__fadeIn" style="width: 400px;margin: 0em 1em;">
+										</a>
+									</div>
+								</div>								
+							<div class="attention animate__fadeIn slower">
+								<p><i class="fa-solid fa-triangle-exclamation attentionsign"></i>Il faut prendre garde à ne pas choisir des dimensions 	trop importantes qui, dans le cadre d'un travail en ligne, rendraient les manipulations difficiles sur un appareil mobile (téléphone portable, tablette).
+								</p>								
+							</div>													
+						</div>						
+					</section>	
+
+					<section id="etape_8">
+						<h2>Aspect de la fenêtre</h2>
+						
+						<div class="titrephase">
+							<span class="circlednum">8</span> Aspect de la fenêtre de travail
+						</div>
+						<div style="flex-grow: 1;">	
+						
+								<div class="notionsaconnaitre animate__fadeIn">			
+									<p>Avant de positionner avec précision les différents objets de la figure, il est nécessaire de modifier l'aspect de la fenêtre de travail de telle manière qu'elle s'affiche sous une forme quasi-identique à celle qu'elle revêtira une fois en ligne.									
+									</p>									
+								</div>							
+						
+							<ul class="fa-ul">
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>
+									Utiliser le menu <span class="ggbmenu">Options <i class="fa-solid fa-angle-right"></i> Avancé... <i class="fa-solid fa-angle-right"></i> Préférences - Aspect&#8239;</span> pour désactiver l'affichage de tous les éléments superflus.
+								</li>
+							</ul>
+							
+							<div style="display:flex;align-items:center;margin-top:0.5em;">
+								<div class="notionsaconnaitre animate__fadeIn">			
+									<p>Bien évidemment, on ne décochera pas la case  <span class="ggbmenu">Afficher</span> de la rubrique <span class="ggbmenu">Barre d'outil</span> dans le cas où l'exercice requiert la construction d'objets par l'élève.									
+									</p>										
+								</div>
+								<div class="spotlight-group">
+									<a class="spotlight"  href="img/ggbaspect_hd.gif">
+										<img src="img/ggbaspect.gif" class="fonctionnalite animate__fadeIn" style="width: 350px;margin: 0em 1em;">		
+									</a>
+								</div>
+							</div>
+
+														
+						</div>						
+					</section>						
+					
+					<section id="etape_9">
+						<h2>Positionnement des objets texte prédéfinis</h2>
+						
+						<div class="titrephase">
+							<span class="circlednum">9</span> Positionnement des objets texte prédéfinis
+						</div>
+						<div style="flex-grow: 1;">	
+																		
+						
+							<ul class="fa-ul">
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>
+									Positionner avec précision l'objet <span class="objetggb">priv_{msg}</span> puis le rendre non sélectionnable.
+								</li>							
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>
+									Positionner avec précision l'objet <span class="objetggb">priv_{MsgEssayeEncore}</span> puis le rendre non sélectionnable.
+								</li>
+							</ul>	
+
+								<div class="notionsaconnaitre animate__fadeIn">								
+									On peut modifier la valeur de la variable numérique <span class="objetggb">priv_{anime}</span> pour rendre visibles les objets <span class="objetggb">priv_{msg}</span> ou <span class="objetggb">priv_{MsgEssayeEncore}</span>.
+								</div>
+
+							<ul class="fa-ul">
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>
+									Positionner avec précision l'objet <span class="objetggb">priv_{messageterminé}</span> puis le rendre non sélectionnable.
+								</li>
+							</ul>
+
+							<div style="display:flex;align-items:center;margin-top:-0.5em;">
+								<div class="notionsaconnaitre animate__fadeIn">			
+									<p>Par défaut, l'objet <span class="objetggb">priv_{messageterminé}</span> est centré sur l'origine de la vue <span class="ggbmenu">Graphique 2</span>.	Pour le centrer dans la vue, il suffit donc de centrer le repère à l'aide du menu contextuel <span class="ggbmenu">Affichage standard Ctrl+M</span>.								
+									</p>										
+								</div>	
+								<div class="spotlight-group">
+									<a class="spotlight"  href="img/ggbtermine_hd.gif">
+										<img src="img/ggbtermine.gif" class="fonctionnalite animate__fadeIn" style="width: 350px;margin: 0em 1em;">		
+									</a>
+								</div>
+							</div>							
+						</div>						
+					</section>						
+					
+					<section id="etape_10" data-menu-title="Finalisation (I)">
+						<h2>Finalisation</h2>
+						
+						<div class="titrephase">
+							<span class="circlednum">10</span> Finalisation<span style="font-weight: 300;margin-left: 1em;">1/3</span>
+						</div>
+						<div style="flex-grow: 1;">	
+																		
+						
+							<ul class="fa-ul">
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>
+									Positionner avec précision tous les autres objets de la figure.
+								</li>	
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>
+									Affecter au calque n°9 les objets qui ne doivent apparaître qu'en fin de question.
+								</li>	
+							</ul>
+							
+								<div class="notionsaconnaitre animate__fadeIn">	
+									On rappelle que les objets inscrits dans la liste <span class="objetggb">priv_{objetscibles}</span>
+									sont automatiquement affectés au calque n°9.
+								</div>
+							
+							<div style="display:flex;align-items:center;margin-top:1em;">
+								<div>
+									<ul class="fa-ul">	
+										<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>
+											Rendre non sélectionnables tous les objets qui n'ont pas vocation à être déplacés par les élèves.
+										</li>
+									</ul>
+								</div>	
+								<div>
+									<a class="spotlight"  href="img/ggbselection_hd.gif">
+										<img src="img/ggbselection.gif" class="fonctionnalite animate__fadeIn" style="width: 400px;margin: 0em 1em;">
+									</a>
+								</div>
+							</div>
+									
+			
+						</div>						
+					</section>		
+
+					<section data-menu-title="Finalisation (II)">
+						<h2>Finalisation</h2>
+						
+						<div class="titrephase">
+							<span class="circlednum">10</span> Finalisation<span style="font-weight: 300;margin-left: 1em;">2/3</span>
+						</div>
+						<div style="flex-grow: 1;">	
+																		
+						
+							<ul class="fa-ul">	
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>
+									Si nécessaire, utiliser le menu <span class="ggbmenu">Outils <i class="fa-solid fa-angle-right"></i> Barre d'outils personnalisée...</span> pour définir les outils accessibles par les élèves.
+								</li>
+							</ul>
+							<p style="text-align:right;">
+								<img src="img/image_32.png" class="fonctionnalite animate__fadeIn" style="width: auto;margin: 0em 1em;">
+							</p>
+							<ul class="fa-ul">	
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>
+									Affecter, si besoin, un script <span class="ggbmenu">Par Actualisation</span> à l'objet <span class="objetggb">priv_{finquestion}</span>.
+								</li>	
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>
+									Ajuster les coordonnées des vecteurs <span class="objetggb">priv_{OffsetBtnCommencer}</span>, <span class="objetggb">priv_{OffsetConsigne}</span> et <span class="objetggb">priv_{OffsetMsgScore}</span>.
+								</li>																
+							</ul>	
+			
+								<div class="notionsaconnaitre animate__fadeIn">	
+									Il est cependant préférable d'enregistrer puis de rouvrir l'exercice pour effectuer ces ajustements depuis l'écran d'accueil de l'exercice et, ainsi, constater directement les effets des modifications des coordonnées
+									de ces vecteurs.									
+								</div>			
+						</div>						
+					</section>						
+					
+					<section data-menu-title="Finalisation (III)">
+						<h2>Finalisation</h2>
+						
+						<div class="titrephase">
+							<span class="circlednum">10</span> Finalisation<span style="font-weight: 300;margin-left: 1em;">3/3</span>
+						</div>
+						<div style="flex-grow: 1;">	
+						
+							<ul class="fa-ul">																										
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>
+									Si cela n'a pas encore été fait, cliquer sur le bouton <img src="img/btn_aeff.svg" style="width:6em;margin-bottom: -0.4em;">.
+								</li>
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>
+									Cacher toutes les vues autres que les vues <span class="ggbmenu">Graphique</span> et <span class="ggbmenu">Graphique&#8239;&#8239;2</span>.
+								</li>	
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>
+									 Dans le cas où l'exercice est destiné à être publié sur la plate-forme Moodle, il sera judicieux d'affecter la valeur <span class="varggb">false</span> au paramètre <span class="objetggb">autoriserDéplacementVue</span> (dans la fonction <span class="jfxggb">Initialisation</span> de la zone <span class="ggbmenu">JavaScript global</span>).
+								</li>
+							</ul>
+
+								<pre class="animate__fadeIn" style="margin-top:1em;margin-bottom:0;margin-right:0;"><code data-trim data-noescape data-line-numbers="31" style="max-height: 180px;">
+function Initialisation() {
+    var parametres = {
+        'priv_{objetscibles}': '{}',
+        'priv_{accueil}': true,
+        'priv_{maxquestions}': 5,
+        'priv_{maxtentatives}': 2, 
+        'priv_{affichageautotentatives}': true,
+        'priv_{scorefractionnaire}': true,
+        'priv_{augmentationscore}': 0.5,
+        'priv_{msgcalculscore}': true,
+        'priv_{verifierexistencetypeobjet}': true,
+        'priv_{typeobjetattendu}': '"point"',
+        'priv_{msg}': '"Il faut construire un point !"',
+        'priv_{verifauto}': false,
+        'priv_{montrerBoutonAide}': true,
+        'priv_{AideImage}': true,
+        'priv_{changerFondReponse}': true,
+        'priv_{fondpardefaut}': '"FFFFFF"',      
+        'priv_{fondpouraide}': '"FF4775"',        
+        'priv_{fondbonnereponse}': '"E1FFE1"',       
+        'priv_{fondmauvaisereponse}': '"FFADAD"',        
+        'priv_{montrergrille}': false,        
+        'priv_{montreraxex}': false,       
+        'priv_{montreraxey}': false,       
+        'priv_{chrono}': false,        
+        'priv_{dureechrono}': 60,        
+        'priv_{AideStopChrono}': true,        
+        'priv_{empecherAnnuler}': true,        
+        'priv_{versionGgbrequise}': 659,        
+        'priv_{vitessecurseur}': 5,       
+        'autoriserDéplacementVue': false
+    };
+    return parametres;
+}
+								</code></pre>									 
+									 
+							<ul class="fa-ul">
+								<li><span class="fa-li"><i class="fa-solid fa-share" data-fa-transform="flip-v"></i></span>
+									Enregistrer la version finale de l'exercice !
+								</li>								
+							</ul>	
+			
+						</div>						
+					</section>						
+					
+				</section>	
+				
+				
+				<section class="impact" data-menu-title="§ Intégration dans Moodle" id="Moodle">					
+					<img style="position: absolute;left: 0;top: 0; opacity: 0.85;margin:0;border:0;max-width:100%;max-height:100%;background: 		none;box-shadow: none;z-index: -1;" src="img/stitre6.png">
+					<div class="boxsubtitle" id="stitre6">
+						<div class="subtitle">
+							Intégration<br>dans Moodle
+						</div>
+					</div>												
+				</section>
+				
+				
+				<section>
+				
+					<section>
+						<h2>Présentation</h2>	
+						
+						<div style="flex-grow:1;display: flex;flex-direction: column;justify-content: center;">
+							<div style="display:flex;gap:1em;align-items:center;">
+								<div>
+									<img src="img/p30.svg" class="animate__fadeIn">
+								</div>
+								<div>
+									<p>L'intégration d'un exercice, conçu  l'aide du <span class="ggbfile"><a href="https://ggbm.at/nhdxcysw" target="_blank">générateur d'exercices</a></span>, au sein de la plate-forme Moodle<sup>*</sup> s'avère des plus
+										simples sous réserve que le module <span class="ggbname">GeoGebra</span><sup>**</sup> soit disponible sur la plate-forme.
+									</p>	
+									<div style="text-align:center;margin:2em 0;">
+										<img src="img/moodle-logo.svg">
+									</div>	
+									<p>
+										Avec ce module, le score obtenu à l'issue d'un exercice est transmis à Moodle ce qui permet à l'enseignant de
+										suivre les progrès de ses élèves.
+									</p>									
+								</div>	
+							</div>
+						</div>
+						<div class="myfooter">
+							<hr style="width: 75%;margin: 0;border:0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
+							<div>
+								<sup>*</sup> Moodle : <a href="https://moodle.org" target="_blank">https://moodle.org</a>
+							</div>
+							<div>
+								<sup>**</sup> Module GeoGebra : <a href="https://moodle.org/plugins/mod_geogebra" target="_blank">https://moodle.org/plugins/mod_geogebra</a>
+							</div>							
+						</div>						
+					</section>
+					
+					<section>
+						<h2>Ajout d'une activité de type GeoGebra</h2>													
+						
+						<p>Pour insérer un exercice :
+						</p>
+						
+						<div class="methode">
+							<div class="mth_titre">Méthode</div>
+							<div class="mth_contenu">
+								<div class="mth_ligne">
+							  		<div>Quitter le mode Visualisation en cliquant sur le bouton <span class="btn_moodle">Activer le mode édition</span>.</div>
+							  		<div><img src="img/image_34.png" style="width:100%;"></div>
+								</div>
+								<div class="mth_ligne">
+							  		<div>Cliquer sur <span class="ggbmenu">Ajouter une activité ou ressource</span>.</div>
+							  		<div><img src="img/image_35.png" style="width:100%;"></div>
+								</div>	
+								<div class="mth_ligne">
+							  		<div>Sélectionner le module <span class="ggbname">GeoGebra</span>.</div>
+							  		<div class="spotlight-group"><a class="spotlight" href="img/ggbmoodle_1_hd.gif"><img src="img/ggbmoodle_1_hd.gif" style="width:100%;"></a></div>
+								</div>									
+							</div>
+						</div>	
+						
+					</section>
+					
+					<section data-menu-title="Paramétrage de l'activité (I)">
+						<h2>Paramétrage de l'activité<span style="font-weight: 300;margin-left: 1em;">1/4</span></h2>	
+						
+						
+						<div class="methode">
+							<div class="mth_titre">Méthode</div>
+							<div class="mth_contenu">
+								<div class="mth_ligne">
+							  		<div>Dans l'onglet <span class="ggbmenu">Généraux</span>, nommer l'activité. Il est également possible de fournir une courte description.
+									</div>
+							  		<div><img src="img/image_37.png" style="width:100%;"></div>
+								</div>
+								<div class="mth_ligne">
+							  		<div>Dans l'onglet <span class="ggbmenu">Contenu</span>, vérifier que le champ <span class="ggbmenu">Type</span> est <span class="ggbmenu">Fichier local</span> puis, dans la rubrique <span class="ggbmenu">Fichier GeoGebra</span>, glisser-déposer le fichier d'extension <span class="ggbcode">.ggb</span> qui correspond à l'exercice choisi.</div>
+							  		<div class="spotlight-group"><a class="spotlight" href="img/ggbmoodle_2_hd.gif"><img src="img/ggbmoodle_2_hd.gif" style="width:100%;"></a></div>
+								</div>									
+							</div>
+						</div>	
+																	
+						
+					</section>	
+					
+					<section data-menu-title="Paramétrage de l'activité (II)">
+						<h2>Paramétrage de l'activité<span style="font-weight: 300;margin-left: 1em;">2/4</span></h2>	
+						
+						
+						<div class="methode">
+							<div class="mth_titre">Méthode</div>
+							<div class="mth_contenu">
+								<div style="font-size: 0.75em;">Il est aussi permis d'intégrer un fichier externe connaissant son adresse (url).<br>
+								Pour un exercice préalablement déposé dans le dépôt <span class="ggbname">GeoGebra</span> :
+								</div>
+								<div class="mth_ligne">
+							  		<div style="width:75%;">Depuis le site de <span class="ggbname">GeoGebra</span>, sélectionner l'exercice à intégrer puis cliquer sur le bouton 
+									<svg style="vertical-align: middle;background: white;border-radius: 5px;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 16a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m0-6a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m0-6a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2z"></path></svg>
+									et, enfin, choisir le menu <span class="ggbmenu">Infos</span>.
+									</div>
+							  		<div class="spotlight-group" style="text-align:center;width:25%;"><a class="spotlight" href="img/image_59.png"><img src="img/image_59.png" style="width:100%;"></a></div>
+								</div>
+								<div class="mth_ligne">
+							  		<div style="width:75%;">Cliquer sur le bouton <span class="btn_ggb">Télécharger</span>, accepter les conditions d'utilisation, effectuer un clic avec le bouton droit de la souris sur le lien 
+									<span style="color:#6161FF;">Appliquette 1 (.ggb)</span> et, dans le menu contextuel, sélectionner <span class="ggbmenu">Copier l'adresse du lien</span>.
+									</div>
+							  		<div class="spotlight-group" style="text-align:center;width:25%;"><a class="spotlight" href="img/image_60.png"><img src="img/image_60.png" style="width:100%;"></a></div>
+								</div>								
+								<div class="mth_ligne">
+							  		<div>Revenir à Moodle et, dans l'onglet <span class="ggbmenu">Contenu</span>, sélectionner <span class="ggbmenu">URL externe</span> pour le champ <span class="ggbmenu">Type</span> puis coller le lien précédemment obtenu dans le champ <span class="ggbmenu">URL</span> (à l'aide, par exemple, du raccourci clavier Ctrl+V ou encore du menu contextuel <span class="ggbmenu">Coller&#8239;</span>).
+									</div>
+							  		<div class="spotlight-group"><a class="spotlight" href="img/ggbmoodle_3_hd.gif"><img src="img/ggbmoodle_3.gif" style="width:100%;"></a></div>
+								</div>									
+							</div>
+						</div>																			
+						
+					</section>						
+					
+					<section data-menu-title="Paramétrage de l'activité (III)">
+						<h2>Paramétrage de l'activité<span style="font-weight: 300;margin-left: 1em;">3/4</span></h2>
+						
+						<div class="methode">
+							<div class="mth_titre">Méthode</div>
+							<div class="mth_contenu">
+								<div class="mth_ligne">
+							  		<div>Dans l'onglet <span class="ggbmenu">Note</span>, vérifier que <span class="ggbmenu">Type</span> est réglé à <span class="ggbmenu">Point</span> et, dans le champ <span class="ggbmenu">Note maximale</span>, saisir la note plus haute qu'un élève peut obtenir avec l'exercice sélectionné.
+									<p>Dans le cadre d'une évaluation formative, il est recommandé de ne pas limiter le nombre de tentatives autorisées et de régler le champ <span class="ggbmenu">Méthode d'évaluation</span> à <span class="ggbmenu">Tentative la plus haute</span>.
+									</p>
+									<div class="attention">
+										<p><i class="fa-solid fa-triangle-exclamation attentionsign"></i>Afin que l'exercice transmette la valeur de la
+											variable <span class="objetggb">grade</span> à Moodle, il est impératif de cocher la case <span class="ggbmenu">Activité auto-évaluée</span>.</p>
+									</div>
+									</div>
+							  		<div><img src="img/image_39.png" style="width:100%;"></div>
+								</div>									
+							</div>
+						</div>						
+					</section>	
+					
+					<section data-menu-title="Paramétrage de l'activité (IV)">
+						<h2>Paramétrage de l'activité<span style="font-weight: 300;margin-left: 1em;">4/4</span></h2>
+						
+						<div class="methode">
+							<div class="mth_titre">Méthode</div>
+							<div class="mth_contenu">
+								<div class="mth_ligne">
+							  		<div>Dans l'onglet <span class="ggbmenu">Apparence</span>, inscrire la valeur 0 dans les champs <span class="ggbmenu">Largeur</span> et <span class="ggbmenu">Hauteur</span> (ou bien, les laisser vides) pour que l'applet adopte sa taille naturelle.
+									<p>Cliquer sur <span class="ggbmenu">Afficher plus...</span> et sélectionner les fonctionnalités désirées (en particulier, cocher <span class="ggbmenu">Afficher la barre d'outils</span> si l'élève a des constructions à effectuer).
+									</p>
+									<div class="attention">
+										<p><i class="fa-solid fa-triangle-exclamation attentionsign"></i>Dans le champ <span class="ggbmenu">Utiliser Javascript depuis</span>, il est primordial de sélectionner <span class="ggbmenu">Fichier GeoGebra (faux)</span>.</p>
+									</div>
+									</div>
+							  		<div><img src="img/image_40.png" style="width:100%;"></div>
+								</div>	
+								<div class="mth_ligne">
+									<div>Valider en cliquant sur l'un des boutons <span class="btn_moodle">Enregistrer et afficher</span> ou <span class="btn_moodle">Enregistrer et revenir au cours</span>.
+									</div>
+									<div><img src="img/image_41.png" style="width:100%;"></div>
+								</div>
+							</div>
+						</div>						
+					</section>						
+					
+					<section>
+						<h2>À propos de la taille de l'applet</h2>
+						
+						<div class="methode">
+							<div class="mth_titre mth_titre_rem">Remarque</div>
+							<div class="mth_contenu mth_remarque">
+								<div>
+								<img src="img/image_42.png" style="float:right;padding-left: 0.4em;padding-bottom: 0.4em;">
+								Lorsque les champs <span class="ggbmenu">Largeur</span> et <span class="ggbmenu">Hauteur</span> de la rubrique <span class="ggbmenu">Apparence</span> sont laissés vides (ou lorsqu'ils se voient affecter une valeur nulle), il arrive parfois que Moodle ne parvienne pas à afficher correctement la figure. En conséquence, il se révèle souvent plus sûr d'inscrire les valeurs qui correspondent à la taille réelle de l'applet. La façon la plus fiable pour déterminer ces valeurs consiste à téléverser le fichier sur le site de <span class="ggbname">GeoGebra</span> puis d'afficher les propriétés de l'applet pour en connaître les dimensions.
+									<div style="margin-top:0.5em;position:relative;display:flex;align-items: center;justify-content: space-around;">
+										<div>
+											<img src="img\image_43.png" style="width:500px;">
+										</div>
+										<div>
+											<img src="img\image_44.png" style="width:300px;">
+										</div>
+										<img src="img\image_45.svg" style="position:absolute;left: 40px;width: 530px;bottom: 56px;">
+										<span style="display:inline-block;color:#940b20;font-size: 0.75em;font-weight: bold;position:absolute;left: 260px;bottom: 30px;">Valeurs à reporter</span>
+									</div>
+								</div>									
+							</div>
+						</div>						
+					</section>	
+
+					<section>
+						<h2>L'activité vue par l'élève</h2>
+						
+						<div style="position:relative;display:flex;gap:1em;align-items:center;">
+							<div style="width:50%;margin-top:2.75em;">
+								<p>L'écran ci-contre montre l'activité telle qu'elle s'affiche côté élève.
+								</p>
+								<div class="attention">
+									<p><i class="fa-solid fa-triangle-exclamation attentionsign"></i>À la fin de l'exercice, pour que leur score soit conservé, il est impératif que les élèves cliquent sur le bouton <span class="btn_moodle_gris">Envoyer et terminer</span>.
+									</p>
+								</div>
+								<div class="imgnote animate__fadeIn" style="top:20px;">
+									Nom de l'activité (champ <span class="ggbmenu" style="color:#940b20;">Nom</span>)
+								</div>
+								<div class="imgnote animate__fadeIn" style="top:55px;">
+									Description de l'activité (champ <span class="ggbmenu" style="color:#940b20;">Description</span>)
+								</div>
+								<div class="imgnote animate__fadeIn" style="top:90px;text-align: center;">
+									Nombre de tentatives autorisées<br>(champ <span class="ggbmenu" style="color:#940b20;">Nombre maximum de tentatives</span>)
+								</div>
+								<div class="imgnote animate__fadeIn" style="top:147px;text-align: center;">
+									Barre d'outils<br>(case à cocher <span class="ggbmenu" style="color:#940b20;">Afficher la barre d'outils</span>)
+								</div>
+								<div class="imgnote arrow2 animate__fadeIn" style="bottom:75px;">
+									Bouton à utiliser en fin d'exercice
+								</div>								
+							</div>
+							<div style="width:50%;">
+								<img src="img\image_46.png" style="width:100%;">
+							</div>
+						</div>						
+					</section>		
+
+					<section>
+						<h2>Affichage par l'élève du score obtenu</h2>
+						
+						<p>À tout instant, les élèves peuvent retrouver les scores obtenus lors de leurs différentes tentatives :</p>
+						<div class="methode">
+							<div class="mth_titre">Méthode</div>
+							<div class="mth_contenu">
+								<div class="mth_ligne">
+									<div>Choisir le menu <span class="ggbmenu">Résultats</span> après avoir cliqué sur la roue crantée <i class="fa-solid fa-gear"></i>.
+									</div>
+									<div><img src="img/image_47.png" style="width:100%;"></div>
+								</div>	
+								<div class="mth_ligne">
+									<div>Un tableau récapitulatif permet de visualiser le score obtenu (colonne <span class="ggbmenu">Évaluation</span>) à chacune des tentatives effectuées ainsi que l'éventuel commentaire laissé par l'enseignant.
+									</div>
+									<div><img src="img/image_48.png" style="width:100%;"></div>
+								</div>
+								<div class="mth_ligne">
+									<div>Cliquer sur le menu <span class="ggbmenu">Voir</span> permet à l'élève d'obtenir les détails relatifs à la tentative effectuée.
+									</div>
+									<div><img src="img/image_49.png" style="width:100%;"></div>
+								</div>
+							</div>
+						</div>							
+					</section>	
+					
+					<section>
+						<h2>Affichage par l'enseignant des scores obtenus</h2>
+						
+						<p>De son côté, l'enseignant a la possibilité de consulter, en temps réel, les résultats de ses élèves :</p>
+						<div class="methode">
+							<div class="mth_titre">Méthode</div>
+							<div class="mth_contenu">
+								<div class="mth_ligne">
+									<div>Choisir le menu <span class="ggbmenu">Résultats</span> après avoir cliqué sur la roue crantée <i class="fa-solid fa-gear"></i>.
+									</div>
+									<div><img src="img/image_50.png" style="width:100%;"></div>
+								</div>	
+								<div class="mth_ligne" style="flex-direction:column;gap:0.25em;">
+									<div style="width:100%;">Le tableau récapitulatif qui s'affiche alors dresse la liste des élèves qui ont participé à l'activité et donne des informations sur le nombre de tentatives effectuées, le temps passé sur l'exercice, le score obtenu à chaque tentative ou encore la note retenue.
+									</div>
+									<div style="width:100%;"><img src="img/image_51.png" style="width:100%;"></div>
+								</div>								
+							</div>
+						</div>							
+					</section>		
+
+										<section>
+						<h2>À propos de la figure enregistrée par Moodle</h2>
+						
+						<div class="methode">
+							<div class="mth_titre mth_titre_rem">Remarque</div>
+							<div class="mth_contenu mth_remarque">
+								<div>								
+								<p><img src="img/image_52.png" style="float:right;width:300px;padding-left: 0.4em;padding-bottom: 0.4em;">Lorsque l'enseignant clique sur le menu <span class="ggbmenu">Note</span> (ou lorsque l'élève clique sur le menu <span class="ggbmenu">Voir</span>&#8239;), la figure finale, enregistrée au moment de l'appui sur le bouton <span class="btn_moodle_gris" style="margin-top:0.2em;">Envoyer et terminer</span>, est supposée s'afficher.</p>
+								<p>Malheureusement, il semble que le module <span class="ggbname">GeoGebra</span> pour Moodle n'enregistre pas correctement l'état final du fichier (l'utilisation intensive de JavaScript en est très certainement la cause) et, de fait, la figure affichée dans cette rubrique se révèle inexploitable (ce qui, quoi qu'il en soit, ne s'avère guère dommageable dans le cadre d'un exercice autocorrigé).
+								</p>
+								</div>									
+							</div>
+						</div>						
+					</section>	
+					
+				</section>
+
+
+				<section class="impact" data-menu-title="§ Le clavier virtuel" id="clavier_virtuel">					
+					<img style="position: absolute;left: 0;top: 0; opacity: 0.85;margin:0;border:0;max-width:100%;max-height:100%;background: 		none;box-shadow: none;z-index: -1;" src="img/stitre7.png">
+					<div class="boxsubtitle" id="stitre7">
+						<div class="subtitle">
+							Le clavier virtuel
+						</div>
+					</div>												
+				</section>
+				
+				
+				<section>
+				
+					<section>
+						<h2>Clavier intégré vs clavier virtuel</h2>	
+						
+							<p>Lorsqu'une applet <span class="ggbname">GeoGebra</span> est exécutée sur un appareil mobile, le clavier intégré à l'application rend aisée la complétion des champs de type texte.
+							</p>						
+						
+						<div style="display:flex;gap:1em;align-items:center;">
+							<div class="spotlight-group">
+								<a class="spotlight"  data-theme="white" href="img/ggbclavier.gif">
+									<img src="img/ggbclavier.gif" style="width:350px;border-radius: 999em;">
+								</a>
+							</div>
+							<div>								
+								<p>Néanmoins, ce clavier intégré ne se révèle guère paramétrable (taille, position, touches autorisées, ...) et, de surcroît, son affichage peut, sous certaines circonstances, rendre pénible la lisibilité de la figure.
+								</p>
+							</div>
+						</div>
+						
+						<div style="display:flex;gap:1em;align-items:center;">
+							<div>								
+								<p>C'est la raison pour laquelle le <span class="ggbfile"><a href="https://ggbm.at/jfwtn4fr" target="_blank">clavier virtuel</a></span>, exposé dans cette section, peut se présenter comme une alternative à l'utilisateur expérimenté souhaitant rendre
+								accessible un clavier directement au sein d'une figure.
+								</p>
+							</div>
+							<div>								
+								<img src="img/image_54.svg" class="fonctionnalite animate__fadeIn" style="width:250px;">								
+							</div>							
+						</div>						
+					</section>
+					
+					<section>
+						<h2>Importation du clavier virtuel dans une figure</h2>						
+						
+						<p>Pour importer le <span class="ggbfile"><a href="https://ggbm.at/jfwtn4fr" target="_blank">clavier virtuel</a></span> dans une figure :
+						</p>
+						
+						<div class="methode">
+							<div class="mth_titre">Méthode</div>
+							<div class="mth_contenu">
+								<div class="mth_ligne">
+							  		<div style="width:60%;">Depuis une figure créée à l'aide du fichier <span class="ggbfile" style="margin:0.25em 0;"><a href="https://ggbm.at/nhdxcysw" target="_blank">générateur d'exercices</a></span>, sélectionner le menu  <span class="ggbmenu">Fichier <i class="fa-solid fa-angle-right"></i> Ouvrir...</span>. </div>
+							  		<div style="width:40%;text-align:center;"><img src="img/image_55.png" style="width:70%;"></div>
+								</div>
+								<div class="mth_ligne">
+							  		<div>Dans la liste déroulante <span class="ggbmenu">Fichier de type</span>, sélectionner <span class="ggbmenu">Insérer Fichier (.ggb)</span>.</div>
+							  		<div><img src="img/image_56.png" style="width:100%;"></div>
+								</div>	
+								<div class="mth_ligne">
+							  		<div>Sélectionner le fichier <span class="ggbfile" style="margin:0.25em 0;"><a href="https://ggbm.at/jfwtn4fr" target="_blank">clavier virtuel</a></span> puis cliquer sur le bouton <span class="btn_moodle_gris">Ouvrir</span>.</div>
+							  		<div class="spotlight-group"><a class="spotlight" href="img/ggbinserercv_hd.gif"><img src="img/ggbinserercv.gif" style="width:100%;"></a></div>
+								</div>									
+							</div>
+						</div>							
+					</section>
+					
+					<section>
+						<h2>Importation du clavier virtuel dans une figure (remarques)</h2>
+						
+						<div class="methode" style="margin-bottom:1em;">
+							<div class="mth_titre mth_titre_rem">Remarques</div>
+							<div class="mth_contenu mth_remarque">
+								<ul class="fa-ul">
+									<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>Le clavier virtuel peut être importé à tout moment dans la figure de travail. Néanmoins, il est recommandé d'insérer le clavier virtuel au dernier moment, une fois la figure entièrement construite.
+									<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>L'importation du fichier <span class="ggbfile" style="margin:0.25em 0;"><a href="https://ggbm.at/jfwtn4fr" target="_blank">clavier virtuel</a></span> entraîne, dans un premier temps, l'insertion de trois nouveaux objets dans la figure. Certains d'entre eux seront automatiquement supprimés à la fin de la procédure.
+								</ul>
+							</div>
+						</div>	
+
+							<div class="attention animate__fadeIn">
+								<p><i class="fa-solid fa-triangle-exclamation attentionsign"></i>Il est fortement conseillé d'enregistrer le fichier de travail <strong>avant</strong> d'importer le fichier <span class="ggbfile" style="margin:0.25em 0;"><a href="https://ggbm.at/jfwtn4fr" target="_blank">clavier virtuel</a></span>.
+								</p>								
+							</div>						
+					</section>	
+
+					<section data-menu-title="Paramétrage et génération du clavier virtuel (I)">
+						<h2>Paramétrage et génération du clavier virtuel<span style="font-weight: 300;margin-left: 1em;">1/3</span></h2>
+						<p>Cliquer sur le bouton <img src="img/btn_clavier.svg" style="width:3.5em;margin-bottom: -0.4em;"> permet de générer le 
+							clavier virtuel au sein de la figure ainsi que d'éventuels champs de saisie associés au clavier.
+						</p>		
+						<p>Mais, auparavant, il est nécessaire de paramétrer ce que le script associé au bouton <img src="img/btn_clavier.svg" style="width:3.5em;margin-bottom: -0.4em;"> doit produire.
+						</p>
+						<p>Les paramètres modifiables sont situés au début du script <span class="ggbmenu">Par Clic</span> associé au bouton <img src="img/btn_clavier.svg" style="width:3.5em;margin-bottom: -0.4em;"> :
+						</p>
+						
+						<div class="methode">
+							<div class="mth_titre">Méthode</div>
+							<div class="mth_contenu">
+								<div style="display:flex;gap:1em;align-items:center;width:100%;">
+							  		<div style="width:50%;font-size:0.75em;">										
+											<div style="margin-bottom:0.5em;"><span style="color: #0E3A64;padding-right: 0.5em;"><i class="fa-solid fa-circle-chevron-right"></i></span>Ouvrir le panneau des propriétés
+												du bouton <img src="img/btn_clavier.svg" style="width:3.5em;margin-bottom: -0.4em;">.</div>
+											<div style="margin-bottom:0.5em;"><span style="color: #0E3A64;padding-right: 0.5em;"><i class="fa-solid fa-circle-chevron-right"></i></span>Sélectionner l'onglet <span class="ggbmenu">Script</span>.</div>
+											<div><span style="color: #0E3A64;padding-right: 0.5em;"><i class="fa-solid fa-circle-chevron-right"></i></span>Sélectionner le sous-onglet <span class="ggbmenu">Par Clic</span>.</div>
+										</ul>
+									</div>								
+							  		<div style="text-align:center;width:50%;line-height:0;" class="spotlight-group"><a class="spotlight"  href="img/ggbclavier_1_hd.gif"><img src="img/ggbclavier_1.gif" style="width:350px;"></a></div>
+								</div>												
+							</div>
+						</div>							
+					</section>	
+
+					<section data-menu-title="Paramétrage et génération du clavier virtuel (II)">
+						<h2>Paramétrage et génération du clavier virtuel<span style="font-weight: 300;margin-left: 1em;">2/3</span></h2>
+						<p>Agir sur la valeur des paramètres situés en début de script permet de modifier la manière dont le script va générer
+							le clavier virtuel ainsi que les éventuels différents champs de saisie associés à ce clavier.
+						</p>
+								<pre class="animate__fadeIn" style="margin-top:1em;margin-bottom:1em;margin-right:0;"><code class="language-javascript" data-trim data-noescape data-line-numbers="1-6,20,24-26" style="max-height: 180px;">
+var Motif = [
+    ["0", "1", "2", "3", "4", "Eff"],
+    ["5", "6", "7", "8", "9", "EffTout"],
+    ["+", "-", "*", "/", "(", ")"],
+    [".", "x", "x²", "cos", "^", ""]
+];
+var delta = 10;
+var largeurbtn = 70;
+var hauteurbtn = 70;
+var sizeM = 4;
+var TouchesNormalesCol = [0, 102, 153, 1];
+var TouchesNormalesFond = [250, 250, 250, 255];
+var TouchesEffacerCol = [255, 255, 255, 1];
+var TouchesEffacerFond = [0, 153, 204, 255];
+var TouchesOpCol = [255, 255, 255, 1];
+var TouchesOpFond = [0, 102, 153, 255];
+var ToucheExeCol = [255, 255, 255, 1];
+var ToucheExeFond = [255, 153, 51, 255];
+var FondClavier = '#006699';
+var opaciteClavier = 0.25;
+var InsererChamps = true;
+var ModeCalc = false;
+var alignCalc = 'left';
+var autoEff = false;
+var Champs = [
+    ['', 300, 10, true]
+];
+var FondChamps = '#F0F0F0';
+var FondChampsSel = '#FFFACD';
+var FondChampExe = '#D5E2D5';
+var FondChampExeSel = '#E1E8B3';
+								</code></pre>
+							<p>Les paramètres les plus importants sont :
+								<ul class="fa-ul">
+									<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span><span class="CVparam">Motif</span> : permet de spécifier
+									les touches à insérer ainsi que leur position ;
+									</li>
+									<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span><span class="CVparam">InsererChamps</span> : permet de générer un ou plusieurs champs de saisie associés au clavier virtuel ;									
+									</li>
+									<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span><span class="CVparam">Champs</span> : permet de paramétrer les différents champs à insérer.
+									</li>									
+								</ul>
+							</p>
+					</section>
+					
+					<section data-menu-title="Paramétrage et génération du clavier virtuel (III)">
+						<h2>Paramétrage et génération du clavier virtuel<span style="font-weight: 300;margin-left: 1em;">3/3</span></h2>
+						<p>Une fois les valeurs des paramètres modifiées, il suffit de fermer le panneau des propriétés du bouton 
+							<img src="img/btn_clavier.svg" style="width:3.5em;margin-bottom: -0.4em;"> et de cliquer sur celui-ci
+							pour intégrer le clavier au sein de la figure.
+						</p>
+						
+						<div class="methode">
+							<div class="mth_titre">Méthode</div>
+							<div class="mth_contenu">
+								<div style="display:flex;gap:1em;align-items:center;width:100%;">
+							  		<div style="width:50%;font-size:0.75em;">										
+											<div style="margin-bottom:0.5em;"><span style="color: #0E3A64;padding-right: 0.5em;"><i class="fa-solid fa-circle-chevron-right"></i></span>Fermer le panneau des propriétés
+												du bouton <img src="img/btn_clavier.svg" style="width:3.5em;margin-bottom: -0.4em;">.
+											</div>
+											<div style="margin-bottom:0.5em;"><span style="color: #0E3A64;padding-right: 0.5em;"><i class="fa-solid fa-circle-chevron-right"></i></span>Cliquer sur le bouton <img src="img/btn_clavier.svg" style="width:3.5em;margin-bottom: -0.4em;">.
+											</div>
+											<div><span style="color: #0E3A64;padding-right: 0.5em;"><i class="fa-solid fa-circle-chevron-right"></i></span>Passer outre le message d'avertissement en cliquant sur le bouton <span class="btn_moodle_gris">Ok</span>.</div>
+										</ul>
+									</div>								
+							  		<div style="text-align:center;width:50%;line-height:0;" class="spotlight-group"><a class="spotlight"  href="img/ggbclavier_2_hd.gif"><img src="img/ggbclavier_2.gif" style="width:350px;"></a></div>
+								</div>												
+							</div>
+						</div>						
+						
+						<div class="attention animate__fadeIn slower">
+							<p><i class="fa-solid fa-triangle-exclamation attentionsign"></i>Avant de cliquer sur le bouton <img src="img/btn_clavier.svg" style="width:3.5em;margin-bottom: -0.4em;">, il est très fortement recommandé <strong>d'enregistrer le fichier sous un nouveau nom</strong>. Ainsi, en cas d'erreur de syntaxe dans le script, ou d'oubli, il sera très simple de revenir en arrière.
+							</p>								
+						</div>
+					</section>
+					
+					<section data-menu-title="Exploitation des saisies des élèves (I)">
+						<h2>Exploitation des saisies des élèves<span style="font-weight: 300;margin-left: 1em;">1/2</span></h2>
+						<div>
+						<img src="img/image_58.png" style="float:right;width:600px;margin-top: 0.75em;margin-right: 1em;">
+						<p style="margin:0;">Les textes saisis par l'élève dans le ou les différents champs associés au clavier virtuel sont stockés dans les listes
+							<span class="objetggb">priv_{ClavierChaines}</span> et <span class="objetggb">priv_{ClavierChainesLaTeX}</span>. 
+						</p>
+						</div>
+						<p>Chaque élément (qui est un objet de type texte) de ces listes contient le texte saisi dans l'un des champs de la figure.
+						</p>
+						<div class="exemple animate__fadeIn">
+							<span class="exemple_title">Exemple</span>
+							<p>Ainsi, pour accéder au texte (au format standart) saisi par l'élève dans le champ n°2, on utilisera
+								la commande <span class="cmdggb">Elément</span> de la manière suivante :								
+							</p>
+							<pre><code class="language-javascript" data-trim data-noescape>
+								<span style="color:#BA2A1A;">Elément</span>(priv_{ClavierChaines}, 2)
+							</code></pre>
+						</div>	
+						<div class="notionsaconnaitre animate__fadeIn">
+							<p>En pratique, la liste <span class="objetggb">priv_{ClavierChainesLaTeX}</span> sert essentiellement à afficher, au format
+								$\LaTeX$, le texte entré par les élèves.
+							</p>	
+						</div>	
+					</section>
+					
+					<section data-menu-title="Exploitation des saisies des élèves (II)">
+						<h2>Exploitation des saisies des élèves<span style="font-weight: 300;margin-left: 1em;">2/2</span></h2>
+						<p>Pour exploiter la saisie d'un élève (la comparer, par exemple, au résultat attendu), on utilise la liste
+							<span class="objetggb">priv_{ClavierChaines}</span> et l'une des commandes&#8239;:
+							<ul class="fa-ul">
+									<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span><span class="cmdggb">AnalyserNombre</span> : lorsque
+										l'élève ne peut saisir qu'une valeur numérique ;
+									</li>
+									<li>ou</li>
+									<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span><span class="cmdggb">AnalyserFonction</span> : dans 
+										tous les autres cas.
+									</li>									
+							</ul>
+						</p>
+						<div class="exemple animate__fadeIn">
+							<span class="exemple_title">Exemple</span>
+							<p>En supposant que  <span class="objetggb">priv_{ClavierChaines}</span><span class="ggbcode">={"61","5x-2"}</span>:								
+								<p><i class="fa-regular fa-square"></i> Pour stocker, dans <span class="ggbcode">rep1</span>, le nombre 61, on écrit :
+							<pre style="margin-right:0;width: 95%;"><code class="language-javascript" data-trim data-noescape>
+								rep1=<span style="color:#BA2A1A;">AnalyserNombre</span>(<span style="color:#BA2A1A;">Elément</span>(priv_{ClavierChaines}, 1))
+							</code></pre>
+								</p>
+								<p><i class="fa-regular fa-square"></i> Pour stocker, dans <span class="ggbcode">rep2</span>, la fonction $x\longmapsto 5x-2$, on écrit :
+							<pre style="margin-right:0;width: 95%;"><code class="language-javascript" data-trim data-noescape>
+								rep2=<span style="color:#BA2A1A;">AnalyserFonction</span>(<span style="color:#BA2A1A;">Elément</span>(priv_{ClavierChaines}, 2))
+							</code></pre>
+								</p>								
+							</p>
+						</div>							
+					</section>
+					
+					<section>
+						<h2>Effectuer des calculs</h2>	
+						<p>Lorsque la touche <img src="img/toucheExe.svg" style="display: inline-block;vertical-align: middle;"> figure parmi la liste des touches disponibles, c'est toujours le champ n°1 qui 
+							se voit destiné à afficher les calculs et leurs résultats.
+						</p>	
+						<p>Attribuer la valeur <span class="varggb">true</span> au paramètre <span class="CVparam">ModeCalc</span> contraint le champ
+							n°1 à s'afficher au-dessus des touches du clavier.
+						</p>
+						<div style="display:flex;height:300px;margin-top:1em;">
+							<div style="width:50%;text-align:center;">
+								<div class="myggb" style="aspect-ratio:441/489;">
+									<div id="ggb-simplecalc"></div>
+								</div>
+							</div>
+							<div style="width:50%;text-align:center;">
+								<div class="myggb" style="aspect-ratio:590/476;">
+									<div id="ggb-calc"></div>
+								</div>
+							</div>
+						</div>
+						<div class="attention animate__fadeIn slower">
+							<p><i class="fa-solid fa-triangle-exclamation attentionsign"></i>Il est nécessaire d'utiliser la touche
+								<img src="img/toucheDeg.svg" style="display: inline-block;vertical-align: middle;width:1.5em;"> pour les calculs utilisant les fonctions trigonométriques et devant être menés en degrés.
+							</p>								
+						</div>
+					</section>
+						
+					
+				</section>	
+				
+				
+				<section class="impact" data-menu-title="Quelques liens complémentaires" id="liens_supplementaires" data-transition="zoom-in zoom-out">					
+					<div class="apropos">
+						
+						<div>
+							<div style="margin-bottom:1em;">Liens complémentaires :</div>
+							<div>
+								<ul class="fa-ul">
+									<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>liste des types d'objets disponibles dans <span class="ggbname">GeoGebra</span> : 
+										<div style="text-align:center;margin:0.5em 0;">
+											<a href="https://bit.ly/ggbtypes" target="_blank" class="lienapropos">https://bit.ly/ggbtypes</a>
+										</div>
+									</li>	
+									<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>fonctions JavaScript spécifiques à <span class="ggbname">GeoGebra</span> : 
+										<div style="text-align:center;margin:0.5em 0;">
+											<a href="https://bit.ly/GgbApi" target="_blank" class="lienapropos">https://bit.ly/GgbApi</a>
+										</div>
+									</li>
+									<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>la brochure <span class="ggbname">Créer avec GeoGebra</span> : 
+										<div style="text-align:center;margin:0.5em 0;">
+											<a href="https://bit.ly/caggb" target="_blank" class="lienapropos">https://bit.ly/caggb</a>							
+										</div>
+									</li>
+								</ul>
+							</div>	
+						</div>
+						
+						<div style="position:absolute;bottom: 3em;right: 3em;">
+							<img src="img/image_53.png" class="fonctionnalite" style="width:250px;">
+						</div>
+				
+					</div>
+				</section>	
+				
+
+					
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/menu/menu.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script src="plugin/appearance/appearance.js"></script>
+		
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				hash: true,
+				viewDistance: 100,
+
+				center: false,
+				display: 'flex',
+				width: 1200,
+				height: 800,
+				margin:0.01,
+				minScale: 0.2,
+				maxScale: 1.2,
+
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+				
+				mathjax3: {
+					mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+					options: {
+					  skipHtmlTags: [ 'script', 'noscript', 'style', 'textarea', 'pre' ]
+					},
+					tex: {
+						inlineMath: [ [ '$', '$' ], [ '\\(', '\\)' ]  ],
+						macros: {
+							R: '\\mathbb{R}',
+							parallelslant: '\\mathbin{\\!/\\mkern-5mu/\\!}',
+							degres: '°',
+							mathcolor: ["\\textcolor{#1}", 1],
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ],
+							checktrue: '\\textcolor{coulperso141}{✔}',
+							checkfalse: '\\textcolor{myred}{✘}'
+						},
+						packages: {'[+]': ['noerrors', 'color','boldsymbol']}
+					},
+					options: {
+						ignoreHtmlClass: 'tex2jax_ignore',
+						processHtmlClass: 'tex2jax_process'
+					},
+					loader: {
+						load: ['[tex]/noerrors', '[tex]/color', '[tex]/boldsymbol']
+					},
+					svg: {
+    					scale: 0.9
+  					},
+					chtml: {
+						scale: 0.9
+					}								
+				},	
+
+				highlight: {
+					beforeHighlight: hljs => hljs.getLanguage('javascript').keywords += ' ggbApplet'
+				},		
+
+				//appearance: {									
+				//	appearevent: 'slidechanged'
+				//},
+				
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMenu, RevealMath.MathJax3, Appearance ]
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				//dependencies: [
+				//    { src: '../reveal.js/plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				//    { src: '../reveal.js/plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				//    { src: '../reveal.js/plugin/highlight/highlight.js', async: true },
+				//    { src: '../reveal.js/plugin/search/search.js', async: true },
+				//    { src: '../reveal.js/plugin/zoom-js/zoom.js', async: true },
+				//    { src: '../reveal.js/plugin/notes/notes.js', async: true }
+				//]
+			});			
+		</script>
+		
+		<script>
+			function CalculerMargeStitre () {
+				for (var i = 1; i <= 7; i++) {
+					var stitre = document.getElementById("stitre"+i);			
+					var height = stitre.offsetHeight;
+					stitre.style.padding = "0.25em 0px 0.25em "+ height/2+"px";					
+				}									
+			}
+			CalculerMargeStitre();
+			Reveal.addEventListener( 'slidechanged', function( event ) {	
+				CalculerMargeStitre();
+			} );
+//
+			var params_simplecalc = {
+						"appName": "classic", 
+						"scaleContainerClass": "myggb",
+						"showToolBar": false, 
+						"showAlgebraInput": false, 
+						"showMenuBar": false,
+						"material_id": "dusnxjkb"						
+						};
+			var params_calc = {
+						"appName": "classic", 
+						"scaleContainerClass": "myggb",
+						"showToolBar": false, 
+						"showAlgebraInput": false, 
+						"showMenuBar": false,
+						"material_id": "x3qgufrc"						
+						};						
+				var ggbApplet = new GGBApplet(params_simplecalc, true);
+				var ggbApplet2 = new GGBApplet(params_calc, true);
+				window.addEventListener("load", function() { 
+					ggbApplet.inject('ggb-simplecalc');
+					ggbApplet2.inject('ggb-calc');
+				});			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="14.017221mm"
+   height="14.017221mm"
+   viewBox="0 0 14.017221 14.017221"
+   version="1.1"
+   id="svg4557"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="toucheDeg.svg">
+  <defs
+     id="defs4551" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="17.530356"
+     inkscape:cx="30.434979"
+     inkscape:cy="24.464925"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata4554">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-91.265199,-138.80091)">
+    <g
+       transform="matrix(0.20024602,0,0,0.20024602,-1.9588891,74.412253)"
+       style="stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0"
+       clip-path="url(#clip100)"
+       id="g1406">
+      <g
+         id="g1404"
+         style="fill:#006699;fill-opacity:1;fill-rule:nonzero;stroke:none">
+        <path
+           d="m 466,329 v 55 c 0,3.87 3.13,7 7,7 h 55 c 3.87,0 7,-3.13 7,-7 v -55 c 0,-3.87 -3.13,-7 -7,-7 h -55 c -3.87,0 -7,3.13 -7,7 z"
+           id="path1398"
+           inkscape:connector-curvature="0" />
+        <title
+           id="title1400">Bouton ClavierDegre</title>
+        <desc
+           id="desc1402">ClavierDegre</desc>
+      </g>
+      <!-- drawing style -->
+    </g>
+    <g
+       transform="matrix(0.20024602,0,0,0.20024602,-2.0494465,74.321695)"
+       style="stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0"
+       clip-path="url(#clip101)"
+       id="g1419">
+      <g
+         id="g1417"
+         style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1">
+        <path
+           d="m 466.5,329.5 v 55 c 0,3.87 3.13,7 7,7 h 55 c 3.87,0 7,-3.13 7,-7 v -55 c 0,-3.87 -3.13,-7 -7,-7 h -55 c -3.87,0 -7,3.13 -7,7 z"
+           id="path1411"
+           inkscape:connector-curvature="0" />
+        <title
+           id="title1413">Bouton ClavierDegre</title>
+        <desc
+           id="desc1415">ClavierDegre</desc>
+      </g>
+      <!-- drawing style -->
+    </g>
+    <g
+       style="stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0"
+       transform="matrix(0.07148783,0,0,0.07148783,96.071103,145.59326)"
+       id="g1434">
+      <clipPath
+         id="clip1cb9be2b-562d-41bc-b323-36188ed5892f">
+        <path
+           d="M -1372.5,-996.98 V 196.3 H 907.56 V -996.98 Z"
+           id="path1421"
+           inkscape:connector-curvature="0" />
+      </clipPath>
+      <g
+         clip-path="url(#clip102)"
+         id="g1432">
+        <g
+           id="g1430"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none">
+          <path
+             d="m 51,-25 q 0,9.906 -6.148,16.1016 -6.149,6.1953 -16.149,6.1953 -9.906,0 -16.101,-6.1016 -6.1958,-6.1013 -6.1958,-16.2893 0,-9.906 6.1488,-16.109 6.148,-6.203 16.148,-6.203 9.891,0 16.094,6.101 Q 51,-35.203 51,-25 Z M 28.703,-8.7969 q 7.297,0 11.75,-4.3051 4.453,-4.304 4.453,-11.992 0,-7.312 -4.351,-11.758 -4.352,-4.445 -11.852,-4.445 -7.297,0 -11.75,4.297 -4.453,4.297 -4.453,12 0,7.297 4.352,11.75 4.351,4.4531 11.851,4.4531 z"
+             id="path1424"
+             inkscape:connector-curvature="0" />
+          <title
+             id="title1426">Bouton ClavierDegre</title>
+          <desc
+             id="desc1428">ClavierDegre</desc>
+        </g>
+        <!-- drawing style -->
+      </g>
+      <!-- clip102 -->
+    </g>
+  </g>
+</svg>
