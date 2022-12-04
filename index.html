@@ -443,7 +443,7 @@
 					</section>	
 
 					<section>
-						<h2>La liste <span class="objetggb" style="color:white;">priv_{liste}</span></h2>
+						<h2>La liste <span class="objetggb" style="color:white;">priv_{liste}</span><span style="font-weight: 300;margin-left: 1em;">1/2</span></h2>
 						<p>L'objet, de type liste, <span class="objetggb">priv_{liste}</span> est essentiel au fonctionnement de l'exerciseur.</p>
 						<p>Initialement vide, cette liste est automatiquement complétée par <span class="ggbname">GeoGebra</span> avec le nom de chacun des nouveaux objets construits.</p>	
 						<div style="margin:0.5em auto 0em;">
@@ -457,7 +457,7 @@
 
 
 					<section data-menu-title="La liste priv_{liste} (II)">
-						<h2>La liste <span class="objetggb" style="color:white;">priv_{liste}</span></h2>
+						<h2>La liste <span class="objetggb" style="color:white;">priv_{liste}</span><span style="font-weight: 300;margin-left: 1em;">2/2</span></h2>
 							<p>Ainsi, afin de tester un exercice non finalisé, le concepteur doit impérativement penser à vider la liste <span class="objetggb">priv_{liste}</span> avant de cliquer sur le bouton <img src="img/btn_verif.svg" style="width:4.5em;margin-bottom: -0.3em;">.
 							</p>
 							<p>
@@ -509,27 +509,36 @@
 						<h2>Présentation</h2>
 						<p>Le script, présent dans la zone <span class="ggbmenu">JavaScript global</span>, propose, dans sa première partie,
 							six fonctions que le concepteur d'exercices peut être amené à modifier.
-							<ul class="fa-ul">
-								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>la fonction <span class="jfxggb">Initialisation</span> ;
+							<ul class="fa-ul" style="margin-top: 1.5em;margin-bottom: 1.5em;">
+								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>la fonction
+								<a class="ajfxggb" href="#/fx_init">Initialisation</a> ;
 								</li>
-								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>la fonction <span class="jfxggb">GgbInitialisation</span> ;
+								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>la fonction 
+								<a class="ajfxggb" href="#/fx_ggbinit">GgbInitialisation</a> ;
 								</li>
-								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>la fonction <span class="jfxggb">Aleatoire</span> ;
+								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>la fonction
+								<a class="ajfxggb" href="#/fx_aleatoire">Aleatoire</a> ;
 								</li>
-								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>la fonction <span class="jfxggb">VerifierFigure</span> ;
+								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>la fonction 
+								<a class="ajfxggb" href="#/fx_veriffig">VerifierFigure</a> ;
 								</li>
-								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>la fonction <span class="jfxggb">VerifierObjetsConstruits</span> ;
+								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>la fonction 
+								<a class="ajfxggb" href="#/fx_verifobj">VerifierObjetsConstruits</a> ;
 								</li>
-								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>la fonction <span class="jfxggb">EcouteursObjectUpdateListener</span>.
+								<li><span class="fa-li"><i class="fa-solid fa-caret-right"></i></span>la fonction
+								<a class="ajfxggb" href="#/fx_ecouteurs">EcouteursObjectUpdateListener</a>.
 								</li>
 							</ul>							
 						</p>
 						<p>En règle générale, les modifications qui doivent intervenir au sein de ces fonctions sont effectuées une fois
 							la figure entièrement construite.
 						</p>
+						<div class="animate__fadeIn" style="position:absolute;right:50px;top:250px;">
+							<img src="img/image_61.png" class="fonctionnalite" style="width:300px;">
+						</div>
 					</section>
 					
-					<section>
+					<section id="fx_init">
 						<h2>La fonction <span class="jfxggb" style="color:white;">Initialisation</span></h2>
 						
 						<div style="flex-grow: 1;display: flex;flex-direction: column;justify-content: center;">
@@ -548,7 +557,9 @@
 							<p>Le concepteur d'exercices ne doit modifier que la valeur des différents paramètres<sup>*</sup> en prenant garde à leur domaine de définition.
 							</p>
 							<p>Attention à l'utilisation des guillemets !</p>
-							<div class="notionsaconnaitre">Les changements effectués dans cette fonction ne deviennent opérants qu'après enregistrement, fermeture et enfin réouverture du fichier.
+							
+							<div class="attention animate__fadeIn slower" style="width: 85%;">
+								<p><i class="fa-solid fa-triangle-exclamation attentionsign"></i> Les changements effectués dans cette fonction ne deviennent opérants qu'après enregistrement, fermeture et enfin réouverture du fichier.</p>
 							</div>
 						</div>
 						
@@ -559,7 +570,7 @@
 						
 					</section>
 					
-					<section>
+					<section id="fx_ggbinit">
 						<h2>La fonction <span class="jfxggb" style="color:white;">GgbInitialisation</span></h2>
 						<p>Le code, inscrit dans cette fonction, est lu et exécuté uniquement à l'ouverture du fichier.
 						</p>
@@ -581,7 +592,7 @@
 						</p>						
 					</section>
 					
-					<section>
+					<section id="fx_aleatoire">
 						<h2>La fonction <span class="jfxggb" style="color:white;">Aleatoire</span></h2>
 						<p>Cette fonction, systématiquement appelée lorsqu'une nouvelle question débute, sert principalement à attribuer des
 							valeurs aléatoires à certains objets de la figure. Mais elle peut également être utilisée pour réinitialiser la valeur ou la mise en forme des objets ou encore pour déclencher un événement particulier (recentrage de la vue, remise à zéro du zoom, etc.).
@@ -601,7 +612,7 @@
 						</div>							
 					</section>
 					
-					<section>
+					<section id="fx_veriffig">
 						<h2>La fonction <span class="jfxggb" style="color:white;">VerifierFigure</span></h2>
 						<p>Lorsque l'exerciseur a besoin de vérifier la réponse d'un élève, c'est la fonction <span class="jfxggb">VerifierFigure</span>
 							qui est appelée et qui est chargée de renvoyer un booléen (<span class="varggb">true</span> ou <span class="varggb">false</span>) selon la nature de la réponse fournie.
@@ -626,7 +637,7 @@
 						</div>							
 					</section>
 					
-					<section>
+					<section id="fx_verifobj">
 						<h2>La fonction <span class="jfxggb" style="color:white;">VerifierObjetsConstruits</span></h2>
 						<p>Cette fonction est appelée au moment où l'élève appuie sur le bouton <img src="img/btn_verif.svg" style="width:4.5em;margin-bottom: -0.3em;"> et permet de vérifier qu'au moins un objet du type attendu a été construit.
 						</p>
@@ -647,7 +658,7 @@
 						</div>
 					</section>
 
-					<section>
+					<section id="fx_ecouteurs">
 						<h2>La fonction <span class="jfxggb" style="color:white;">EcouteursObjectUpdateListener</span></h2>
 						<p>Il peut être parfois utile de déclencher un script à chaque fois que la valeur d'un objet
 							est actualisée. En général, on utilise, pour ce faire, un script affecté à l'onglet <span class="ggbmenu">Par Actualisation</span> de l'objet concerné.
@@ -1586,7 +1597,7 @@ function Initialisation() {
 							  		<div>Dans l'onglet <span class="ggbmenu">Note</span>, vérifier que <span class="ggbmenu">Type</span> est réglé à <span class="ggbmenu">Point</span> et, dans le champ <span class="ggbmenu">Note maximale</span>, saisir la note plus haute qu'un élève peut obtenir avec l'exercice sélectionné.
 									<p>Dans le cadre d'une évaluation formative, il est recommandé de ne pas limiter le nombre de tentatives autorisées et de régler le champ <span class="ggbmenu">Méthode d'évaluation</span> à <span class="ggbmenu">Tentative la plus haute</span>.
 									</p>
-									<div class="attention">
+									<div class="attention animate__fadeIn">
 										<p><i class="fa-solid fa-triangle-exclamation attentionsign"></i>Afin que l'exercice transmette la valeur de la
 											variable <span class="objetggb">grade</span> à Moodle, il est impératif de cocher la case <span class="ggbmenu">Activité auto-évaluée</span>.</p>
 									</div>
@@ -1607,7 +1618,7 @@ function Initialisation() {
 							  		<div>Dans l'onglet <span class="ggbmenu">Apparence</span>, inscrire la valeur 0 dans les champs <span class="ggbmenu">Largeur</span> et <span class="ggbmenu">Hauteur</span> (ou bien, les laisser vides) pour que l'applet adopte sa taille naturelle.
 									<p>Cliquer sur <span class="ggbmenu">Afficher plus...</span> et sélectionner les fonctionnalités désirées (en particulier, cocher <span class="ggbmenu">Afficher la barre d'outils</span> si l'élève a des constructions à effectuer).
 									</p>
-									<div class="attention">
+									<div class="attention animate__fadeIn">
 										<p><i class="fa-solid fa-triangle-exclamation attentionsign"></i>Dans le champ <span class="ggbmenu">Utiliser Javascript depuis</span>, il est primordial de sélectionner <span class="ggbmenu">Fichier GeoGebra (faux)</span>.</p>
 									</div>
 									</div>
@@ -1983,12 +1994,12 @@ var FondChampExeSel = '#E1E8B3';
 							<span class="exemple_title">Exemple</span>
 							<p>En supposant que  <span class="objetggb">priv_{ClavierChaines}</span><span class="ggbcode">={"61","5x-2"}</span>:								
 								<p><i class="fa-regular fa-square"></i> Pour stocker, dans <span class="ggbcode">rep1</span>, le nombre 61, on écrit :
-							<pre style="margin-right:0;width: 95%;"><code class="language-javascript" data-trim data-noescape>
+							<pre style="margin-right:0;width: 96%;"><code class="language-javascript" data-trim data-noescape>
 								rep1=<span style="color:#BA2A1A;">AnalyserNombre</span>(<span style="color:#BA2A1A;">Elément</span>(priv_{ClavierChaines}, 1))
 							</code></pre>
 								</p>
 								<p><i class="fa-regular fa-square"></i> Pour stocker, dans <span class="ggbcode">rep2</span>, la fonction $x\longmapsto 5x-2$, on écrit :
-							<pre style="margin-right:0;width: 95%;"><code class="language-javascript" data-trim data-noescape>
+							<pre style="margin-right:0;width: 96%;"><code class="language-javascript" data-trim data-noescape>
 								rep2=<span style="color:#BA2A1A;">AnalyserFonction</span>(<span style="color:#BA2A1A;">Elément</span>(priv_{ClavierChaines}, 2))
 							</code></pre>
 								</p>								
